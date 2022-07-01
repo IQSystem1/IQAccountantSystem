@@ -1,0 +1,14 @@
+.operation{
+    font-size: 30px;
+    background-color: #969899;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+.operation:hover{
+    background-color: #cddce9 ;
+}
+.operation i{
+    margin-right: 10px;
+}

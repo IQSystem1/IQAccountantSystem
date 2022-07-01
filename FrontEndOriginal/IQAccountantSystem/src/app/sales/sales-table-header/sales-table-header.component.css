@@ -1,0 +1,18 @@
+
+.table, .right-col{
+    background-color: #1818edd4;
+    color: white;
+}
+
+.table>:not(caption)>*>* {
+    border: 2px solid;
+}
+
+.right-col{
+    margin-top: 3px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}

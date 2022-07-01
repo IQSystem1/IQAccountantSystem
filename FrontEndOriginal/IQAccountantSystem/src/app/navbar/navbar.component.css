@@ -1,0 +1,14 @@
+.navbar .left-item{
+    margin-left: 50px;
+}
+.navbar .right-item{
+    margin-right: 50px;
+}
+
+
+@media print{
+    nav{
+        display: none;
+    }
+    
+}

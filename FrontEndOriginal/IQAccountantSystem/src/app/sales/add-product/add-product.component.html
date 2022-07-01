@@ -1,0 +1,128 @@
+<div class="container mt-5 mb-5 d-flex justify-content-center">
+    <div class="card px-1 py-4">
+        <div class="card-body">
+            <form [formGroup]="productForm" (ngSubmit)="Submit()">
+                <h6 class="card-title mb-3"><h1>اضافة منتج جديد</h1></h6>
+                <h4 class="information mt-4">الرجاء تعبئة جميع المعلومات بدقة</h4>
+                
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <input class="form-control" formControlName="productCode" [(ngModel)]="product.productCode" id="fff" type="text" placeholder="كود المنتج"> 
+                        </div>
+                        <div *ngIf="productForm.controls['productCode'].hasError('required') && productForm.controls['productCode'].touched" class="alert alert-danger mt-2">
+                            الرجاء كتابة كود المنتج
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <input class="form-control" formControlName="productName" id="fff" type="text" placeholder="اسم المنتج"> 
+                        </div>
+                        <div *ngIf="productForm.controls['productName'].hasError('required') && productForm.controls['productName'].touched" class="alert alert-danger mt-2">
+                            الرجاء كتابة اسم المنتج
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="input-group"> 
+                                <input class="form-control" formControlName="productUnit" type="text" placeholder="الوحدة"> 
+                            </div>
+                            <div *ngIf="productForm.controls['productUnit'].hasError('required') && productForm.controls['productUnit'].touched"
+                             class="alert alert-danger mt-2">
+                                الرجاء كتابة وحدة المنتج
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="input-group"> 
+                                <input class="form-control" type="number" placeholder="السعر" formControlName="productPrice"> 
+                            </div>
+                            <div *ngIf="productForm.controls['productPrice'].hasError('required') && productForm.controls['productPrice'].touched"
+                             class="alert alert-danger mt-2">
+                                الرجاء كتابة سعر المنتج
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="input-group"> 
+                                <input class="form-control" type="number" placeholder="(اختياري) الضريبة" formControlName="productTax"> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="name">(اخنياري) اضافة ملاحظة</label> 
+                            <textarea class="form-control note" id="name" formControlName="productNote"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>(اخنياري) صورة المنتج</label>
+                            <div class="input-group">
+                                <input class="form-control" (change)="ImageOperation($event)" type="file" accept="image/png, image/jpeg" formControlName="productImage" placeholder="صورة المنتج"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <div class="d-none" id="newImg">
+                                <label>New Image</label> <br>
+                                <img id="img"   width="200px" height="200px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 mt-3">
+                        <label> (اخنياري) فيديو المنتج</label>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input class="form-control" (change)="VideoOperation($event)" type="file" accept="video/mp4,video/x-m4v,video/*" formControlName="productVideo" placeholder="صورة المنتج"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <div class="d-none" id="newVideo">
+                                <label>New Video</label> <br>
+                                <video id="video"   width="200px" height="200px"> </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="input-group"> 
+                                <button type="submit" [disabled]="!productForm.valid" class="form-control btn btn-success">اضافة</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

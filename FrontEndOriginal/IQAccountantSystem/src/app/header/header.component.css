@@ -1,0 +1,6 @@
+@media print{
+    pp-header-navbar, app-header-title{
+        display: none;
+    }
+    
+}

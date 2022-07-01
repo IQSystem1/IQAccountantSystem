@@ -1,0 +1,41 @@
+<div class="container-fluid m-2">
+  
+    <div class="float-end">
+      <input type="text" [(ngModel)]="code" (keyup.enter)="Search()" class="input-group-text m-2" placeholder="بحث">
+    </div>
+  
+
+  <table class="table table-bordered" id="table">
+    <thead>
+      <tr>
+        <th scope="col">مشاهدة الفيديوهات</th>
+        <th scope="col">الاجمالي</th>
+        <th scope="col">التاريخ والوقت</th>
+        <th scope="col">ضريبة</th>
+        <th scope="col">السعر</th>
+        <th scope="col">الوحدة</th>
+        <th scope="col">الكمية</th>
+        <th scope="col">الاسم</th>
+        <th scope="col">الكود</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sale of sales">
+        <td> <button class="btn btn-primary" (click)="OpenVideosDialog(sale)">مشاهدة الفيديوهات</button></td>
+        <th>{{sale.productPrice*sale.productQuantity}} {{sale.productUnit}}</th>
+        <th>{{sale.saleTime | date: 'yyyy/MM/dd : hh:mm:ss'}}</th>
+        <td>{{sale.productTax}}</td>
+        <td>{{sale.productPrice}}</td>
+        <td>{{sale.productUnit}}</td>
+        <td>{{sale.productQuantity}}</td>
+        <td>{{sale.productName}}</td>
+        <td>{{sale.productCode}}</td>
+      </tr>
+    </tbody>
+    <button *ngIf="sales && sales.length<count" class="btn btn-success" (click)="Paginate()">See More</button>
+    <button *ngIf="sales && sales.length>=count" class="btn btn-danger" (click)="PaginateLess()">See Less</button>
+
+    <button *ngIf="!sales" class="btn btn-success" (click)="GetSales()">Show Sales</button>
+
+  </table>
+</div>

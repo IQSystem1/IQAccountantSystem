@@ -1,0 +1,9 @@
+@media print{
+    app-navbar, app-header{
+        display: none;
+    }
+    
+    .card{
+        margin-top: 200px;
+    }
+}

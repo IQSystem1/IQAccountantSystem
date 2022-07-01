@@ -1,0 +1,11 @@
+<mdb-carousel [interval]="0" [animation]="'slide'" *ngIf="videos.length" >
+    <mdb-carousel-item *ngFor="let video of videos">
+        <video controls>
+            <source [src]="video.url">
+        </video>
+    </mdb-carousel-item>
+  </mdb-carousel>
+
+  <div *ngIf="!videos.length">
+    No Videos <button class="btn btn-primary" (click)="AddVideo()" [routerLink]="'../edit/'+productId">Add Video</button>
+  </div>

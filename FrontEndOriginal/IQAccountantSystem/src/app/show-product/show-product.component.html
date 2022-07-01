@@ -1,0 +1,42 @@
+<table class="table table-bordered p-3 m-3">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+
+        <th scope="col">الصورة</th>
+        <th scope="col">الفيديو</th>
+        <th scope="col">السعر</th>
+        <th scope="col">الضريبة</th>
+        <th scope="col">الوحدة</th>
+        <th scope="col">ملاحظات</th>
+        <th scope="col">الكود</th>
+        <th scope="col">الاسم</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of productDto">
+        <td><button class="btn btn-primary" [routerLink]="'../edit/'+product.productId">تعديل</button></td>
+        <td><button class="btn btn-danger" [routerLink]="'../delete/'+product.productId">حذف</button></td>
+        <td><button class="btn btn-danger" [routerLink]="'../print/'+product.productCode" >طباعة الباركود</button></td>
+        <td *ngIf="!product.productNote"></td>
+        <td *ngIf="product.productNote"><button class="btn btn-danger" [routerLink]="'../printNote/'+product.productCode" >طباعة الملاحظة</button></td>
+
+
+        <td><img [src]="product.imageUrl" width="100px" height="100px" alt="لا يوجد صورة"> </td>
+        <td *ngIf="product.videoUrl"><a [href]="product.videoUrl"> من هنا</a> </td>
+        <td class="bold" *ngIf="!product.videoUrl" style="color: red;">لا يوجد فيديو </td>
+        <td>{{product.productPrice}}</td>
+        <th>{{product.productTax}}</th>
+        <td>{{product.productUnit}}</td>
+        <td>{{product.productNote}}</td>
+        <td>{{product.productCode}}</td>
+        <!-- <td><img [src]="product.barcodeImage" width="200px"></td> -->
+        <td>{{product.productName}}</td>
+      </tr>
+    </tbody>
+  <button (click)="Paginate()">See more</button>
+
+  </table> 

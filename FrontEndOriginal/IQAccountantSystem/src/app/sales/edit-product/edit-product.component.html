@@ -1,0 +1,137 @@
+<div class="container">
+    <div class="card px-1 py-4 mt-2">
+        <div class="card-body">
+            <form (ngSubmit)="Submit()">
+                <h6 class="card-title mb-3 text-center"><h1>تعديل المنتج</h1></h6>
+                <h4 class="information mt-4 text-center">الرجاء تعبئة جميع المعلومات بدقة</h4>
+                
+                <div class="row justify-content-center">
+                    <div class="col-sm-4">
+                        <label>اسم المنتج</label>
+                        <div class="form-group">
+                            <input class="form-control"  [(ngModel)]="product.productName" [ngModelOptions]="{standalone: true}"  id="fff" type="text" placeholder="اسم المنتج"> 
+                        </div>
+                        <div *ngIf="!product.productName"
+                             class="alert alert-danger mt-2">
+                                الرجاء كتابة اسم المنتج
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>وحدة المنتج</label>
+                            <div class="input-group"> 
+                                <input class="form-control" [(ngModel)]="product.productUnit" [ngModelOptions]="{standalone: true}" type="text" placeholder="الوحدة"> 
+                            </div>
+                            <div *ngIf="!product.productUnit"
+                             class="alert alert-danger mt-2">
+                                الرجاء كتابة وحدة المنتج
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>سعر المنتج</label>
+                            <div class="input-group"> 
+                                <input class="form-control" [(ngModel)]="product.productPrice" [ngModelOptions]="{standalone: true}" type="number" placeholder="السعر" > 
+                            </div>
+                            <div *ngIf="!product.productPrice"
+                             class="alert alert-danger mt-2">
+                                الرجاء كتابة سعر المنتج
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>ضريبة المنتج</label>
+                            <div class="input-group"> 
+                                <input class="form-control" type="number" [(ngModel)]="product.productTax" [ngModelOptions]="{standalone: true}"> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="name">(اخنياري) اضافة ملاحظة</label> 
+                            <textarea class="form-control note" [(ngModel)]="product.productNote" [ngModelOptions]="{standalone: true}" id="name" ></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3 justify-content-center">
+                    <div class="col-sm-4">
+                        <div class="form-group" *ngIf="!selectedImage">
+                            <div >
+                                <label>الصورة الحالية</label> <br>
+                                <img [src]="product.imageUrl" width="200px" height="200px">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>(اخنياري) صورة المنتج</label>
+                            <div class="input-group">
+                                <input class="form-control" (change)="ImageOperation($event)" type="file" accept="image/png, image/jpeg"  placeholder="صورة المنتج"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="d-none" id="newImg">
+                                <label>الصورة الجديدة</label> <br>
+                                <img id="img"   width="200px" height="200px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-sm-4">
+                        <div class="form-group" *ngIf="!selectedVideo">
+                            <div *ngIf="product.videoUrl" >
+                                <label>Current Video</label> <br>
+                                <video [src]="product.videoUrl"  width="200px" height="200px"> </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 mt-3">
+                        <label> (اخنياري) فيديو المنتج</label>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input class="form-control" (change)="VideoOperation($event)" type="file" accept="video/mp4,video/x-m4v,video/*"  placeholder="صورة المنتج"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="d-none" id="newVideo">
+                                <label>New Video</label> <br>
+                                <video id="video"   width="200px" height="200px"> </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="input-group"> 
+                                <button type="submit"  class="form-control btn btn-success">اضافة</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
