@@ -6,7 +6,7 @@ namespace IQ.Accountant.System.Entities.DTO
 {
     public class SaleProductDTO
     {
-        public string ProductCode { get; set; }
+        public string ProductIqCode { get; set; }
         public int Quantity { get; set; }
     }
 }

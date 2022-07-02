@@ -15,6 +15,7 @@ import { ShowVideosComponent } from 'src/app/show-videos/show-videos.component';
 export class SalesTableComponent implements OnInit {
 
   code :string="";
+  iqCode:string="";
   paginationInfo:PaginationInfo ={
     pageNo:1,
     pageSize:10
@@ -63,6 +64,23 @@ export class SalesTableComponent implements OnInit {
     this.GetSales();
   }
   
+  }
+
+  SearchByIqCode(){
+    this.paginationInfo.pageSize=10;
+    if(isNumber(this.iqCode)){
+        this.saleService.SearchByIqCode(String(this.iqCode)).subscribe(
+        data=>
+        {
+          if(data==null)
+            this.toastr.warning("لا يوجد منتج بهذا الكود")
+          this.sales=data
+        }
+      )
+    
+  }else if(this.iqCode.length==0){
+    this.GetSales();
+  } 
   }
 
   PaginateLess(){

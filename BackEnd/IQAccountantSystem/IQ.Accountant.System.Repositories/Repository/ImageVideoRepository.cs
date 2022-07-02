@@ -106,6 +106,23 @@ namespace IQ.Accountant.System.Repositories.Repository
             }
             return videos;
         }
+        public IEnumerable<ImageVideo> GetVideosByProductIqCode(string productCode)
+        {
+            var productIds = _context.products.Where(p => p.ProductIqCode == productCode).ToList().Select(x => x.Id);
+            var videoIds = new List<int>();
+            foreach (var productId in productIds)
+            {
+                var video = _context.productImageVideos.Where(v => v.ProductId == productId && !v.IsImage).FirstOrDefault();
+                if (video != null)
+                    videoIds.Add(video.ImageVideoId);
+            }
+            var videos = new List<ImageVideo>();
+            foreach (var videoId in videoIds)
+            {
+                videos.Add(_context.imageVideos.Find(videoId));
+            }
+            return videos;
+        }
 
     }
 }

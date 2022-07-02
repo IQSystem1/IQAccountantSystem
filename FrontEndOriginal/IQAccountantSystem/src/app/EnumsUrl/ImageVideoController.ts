@@ -6,6 +6,7 @@ export enum ImageVideoController{
     put = HostUrl.hostUrl+HostUrl.imageVideo,
     delete = HostUrl.hostUrl+HostUrl.imageVideo,
     getByProductId = HostUrl.hostUrl+HostUrl.imageVideo+"GetByProductId/",
-    getByProductCode = HostUrl.hostUrl+HostUrl.imageVideo+"GetVideosByProductCode/"
+    getByProductCode = HostUrl.hostUrl+HostUrl.imageVideo+"GetVideosByProductCode/",
+    getByProductIqCode = HostUrl.hostUrl+HostUrl.imageVideo+"GetVideosByProductIqCode/"
 
 }

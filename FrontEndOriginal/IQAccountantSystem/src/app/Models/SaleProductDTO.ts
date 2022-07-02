@@ -1,5 +1,4 @@
 export interface SaleProductDTO{
-    productCode:string;
+    productIqCode:string;
     quantity:number; 
-
 }

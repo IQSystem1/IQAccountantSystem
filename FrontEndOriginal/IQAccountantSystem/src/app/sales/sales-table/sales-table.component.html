@@ -1,7 +1,9 @@
 <div class="container-fluid m-2">
   
     <div class="float-end">
-      <input type="text" [(ngModel)]="code" (keyup.enter)="Search()" class="input-group-text m-2" placeholder="بحث">
+      <input type="text" [(ngModel)]="code" (keyup.enter)="Search()" class="input-group-text m-2" placeholder=" بحث من خلال الكود">
+      <input type="text" [(ngModel)]="iqCode" (keyup.enter)="SearchByIqCode()" class="input-group-text m-2" placeholder=" بحث من خلال كود الشركة">
+
     </div>
   
 
@@ -16,6 +18,8 @@
         <th scope="col">الوحدة</th>
         <th scope="col">الكمية</th>
         <th scope="col">الاسم</th>
+        <th scope="col"> كود المنتج الخاص</th>
+
         <th scope="col">الكود</th>
       </tr>
     </thead>
@@ -29,6 +33,7 @@
         <td>{{sale.productUnit}}</td>
         <td>{{sale.productQuantity}}</td>
         <td>{{sale.productName}}</td>
+        <td>{{sale.productIqCode}}</td>
         <td>{{sale.productCode}}</td>
       </tr>
     </tbody>

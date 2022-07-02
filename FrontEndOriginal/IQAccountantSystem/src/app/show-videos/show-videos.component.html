@@ -1,8 +1,12 @@
 <mdb-carousel [interval]="0" [animation]="'slide'" *ngIf="videos.length" >
     <mdb-carousel-item *ngFor="let video of videos">
-        <video controls>
+        <video width="100%" controls>
             <source [src]="video.url">
         </video>
+        <div class="carousel-caption" *ngIf="sale.productNote">
+          <h3 class="h3-responsive">ملاحظة</h3>
+          <p>{{sale.productNote}}</p>
+        </div>
     </mdb-carousel-item>
   </mdb-carousel>
 

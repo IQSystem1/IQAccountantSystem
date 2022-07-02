@@ -8,6 +8,8 @@ export interface SaleDTO{
     videoUrl :string;
     imageUrl :string;
     productCode:string;
+    productIqCode:string;
     productTax:number;
     saleTime:string;
+    productNote:string;
 }

@@ -27,5 +27,8 @@ export class SaleService {
   SearchByCode(code:string):Observable<SaleDTO[]>{
     return this.http.get<SaleDTO[]>(HostUrl.hostUrl.toString()+HostUrl.sale.toString()+"SearchByCode/"+code);
   }
+  SearchByIqCode(code:string):Observable<SaleDTO[]>{
+    return this.http.get<SaleDTO[]>(HostUrl.hostUrl.toString()+HostUrl.sale.toString()+"SearchByIqCode/"+code);
+  }
 
 }

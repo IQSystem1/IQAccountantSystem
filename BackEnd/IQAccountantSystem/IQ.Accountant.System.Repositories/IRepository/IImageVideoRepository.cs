@@ -17,6 +17,8 @@ namespace IQ.Accountant.System.Repositories.IRepository
         ImageVideo GetVideoByProductId(int productId);
         SuccessMessage DeleteByProductId(int productId);
         IEnumerable<ImageVideo> GetVideosByProductCode(string productCode);
+        IEnumerable<ImageVideo> GetVideosByProductIqCode(string productCode);
+
 
 
     }

@@ -61,6 +61,7 @@ namespace IQ.Accountant.System.Services.Services
                 productPrice = product.ProductPrice,
                 productNote = product.ProductNote,
                 productTax = product.ProductTax,
+                productIqCode = product.ProductIqCode,
                 imageUrl = imageUrl,
                 videoUrl = videoUrl
             };
@@ -84,18 +85,17 @@ namespace IQ.Accountant.System.Services.Services
 
         public Product Insert(Product entity)
         {
-            if (entity.ProductIqCode != null)
+            
+            var products = _productRepository.Get().Select(x => x.ProductIqCode);
+            var code = GenerateRandomCode();
+
+            while (products.Contains(code))
             {
-                var products = _productRepository.Get().Select(x => x.ProductIqCode);
-                var code = GenerateRandomCode();
-
-                while (products.Contains(code))
-                {
-                    code = GenerateRandomCode();
-                }
-                entity.ProductIqCode = code;
-
+                code = GenerateRandomCode();
             }
+            entity.ProductIqCode = code;
+
+            
             return _productRepository.Insert(entity);
         }
 
@@ -234,7 +234,6 @@ namespace IQ.Accountant.System.Services.Services
         public Product Update(ProductDTO entity)
         {
             Product product = ConverProductDTOToProduct(entity);
-
             try
             {
                 if (!String.IsNullOrEmpty(entity.imageUrl))
@@ -248,7 +247,6 @@ namespace IQ.Accountant.System.Services.Services
                         };
                         image= _imageVideoRepository.Insert(image);
                         _productImageVideoRepository.Insert(new ProductImageVideo() { ImageVideoId = image.Id, ProductId = entity.productId , IsImage = true});
-
                     }
                     else
                     {
@@ -275,10 +273,9 @@ namespace IQ.Accountant.System.Services.Services
                         };
                         video = _imageVideoRepository.Insert(video);
                         _productImageVideoRepository.Insert(new ProductImageVideo() { ImageVideoId = video.Id, ProductId = entity.productId, IsImage=false });
-
                     }
                 }
-
+               
                 product = _productRepository.Update(product);
                 return product;
             }catch(Exception ex)

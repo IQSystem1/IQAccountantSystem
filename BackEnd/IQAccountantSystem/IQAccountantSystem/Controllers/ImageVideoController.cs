@@ -58,5 +58,11 @@ namespace IQAccountantSystem.Controllers
         {
             return _imageVideoRepository.GetVideosByProductCode(productCode);
         }
+
+        [HttpGet("GetVideosByProductIqCode/{productCode}")]
+        public IEnumerable<ImageVideo> GetVideosByProductIqCode(string productCode)
+        {
+            return _imageVideoRepository.GetVideosByProductIqCode(productCode);
+        }
     }
 }

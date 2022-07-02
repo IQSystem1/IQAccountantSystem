@@ -16,7 +16,15 @@
                 <div class="row mt-2">
                     <div class="col-12">
                         <div class="form-group">
-                            <input class="form-control" [ngModelOptions]="{standalone: true}" (ngModelChange)="GetProduct()" id="fff" type="text" [(ngModel)]="product.productName"placeholder="اسم المنتج"> 
+                            <input class="form-control" [ngModelOptions]="{standalone: true}" (ngModelChange)="GetProduct()" id="fff" type="text" [(ngModel)]="product.productIqCode" placeholder="كود المنتج الخاص"> 
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input class="form-control" [ngModelOptions]="{standalone: true}" (ngModelChange)="GetProduct()" id="fff" type="text" [(ngModel)]="product.productName" placeholder="اسم المنتج"> 
                         </div>
                         
                     </div>
@@ -26,12 +34,14 @@
                         <thead>
                             <th scope="col">الكود</th>
                             <th scope="col">الاسم</th>
+                            <th scope="col">الكود الخاص</th>
+                            
                         </thead>
                         <tbody>
                             <tr (dblclick)="GetProductByDoubleClick(prod)" *ngFor="let prod of products" >
                                 <td >{{prod.productCode}}</td>
                                 <td>{{prod.productName}}</td>
-    
+                                <td>{{prod.productIqCode}}</td>
                             </tr>
                         </tbody>
                     </table>

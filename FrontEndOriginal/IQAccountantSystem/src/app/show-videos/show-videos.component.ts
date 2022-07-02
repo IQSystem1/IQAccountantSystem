@@ -18,7 +18,8 @@ export class ShowVideosComponent implements OnInit {
 
   videos:ImageVideo[] = [];
   ngOnInit(): void {
-    this.videoService.GetVideosByProductCode(this.sale.productCode).subscribe(
+    console.log(this.sale)
+    this.videoService.GetVideosByProductIqCode(this.sale.productIqCode).subscribe(
       data=>{
         this.videos = data;
       }

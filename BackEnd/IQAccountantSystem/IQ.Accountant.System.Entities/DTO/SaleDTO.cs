@@ -13,11 +13,12 @@ namespace IQ.Accountant.System.Entities.DTO
         public string ProductName { get; set; }
         public string ProductUnit { get; set; }
         public string ProductCode { get; set; }
-        public float ProductTax { get; set; }
+        public float? ProductTax { get; set; }
+        public string ProductIqCode { get; set; }
         public string VideoUrl { get; set; }
         public string ImageUrl { get; set; }
         public string saleTime { get; set; }
         public int? PageSize { get; set; }
-
+        public string ProductNote { get; set; }
     }
 }

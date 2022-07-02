@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Product } from 'src/app/Models/Product';
 import { ProductDTO } from 'src/app/Models/ProductDTO';
 import { SaleProductDTO } from 'src/app/Models/SaleProductDTO';
 import { ProductService } from 'src/app/Services/product.service';
@@ -44,13 +43,13 @@ export class SearchProductComponent implements OnInit {
 
     GetProductByDoubleClick(product:ProductDTO){
     this.product = product;
-    if(this.product.productCode)
+    if(this.product.productIqCode)
     {
-      if(this.productToSale.has(this.product.productCode)){
-          this.productToSale.set(this.product.productCode, Number(this.productToSale.get(this.product.productCode))+1)
+      if(this.productToSale.has(this.product.productIqCode)){
+          this.productToSale.set(this.product.productIqCode, Number(this.productToSale.get(this.product.productIqCode))+1)
         
       }else{
-        this.productToSale.set(this.product.productCode,1);
+        this.productToSale.set(this.product.productIqCode,1);
       }
       this.bindedProductToSaleKeys = this.productToSale.keys();
     }
@@ -74,8 +73,8 @@ export class SearchProductComponent implements OnInit {
     if(this.productToSale.values().next().value){
       this.productToSale.forEach((value , key )=> {
         let saleProduct:SaleProductDTO = {
-          productCode : key,
-          quantity:value
+          productIqCode : key,
+          quantity:value,
         }
         this.InsertSale(saleProduct);
       });

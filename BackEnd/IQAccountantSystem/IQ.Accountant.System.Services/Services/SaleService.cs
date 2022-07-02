@@ -24,7 +24,7 @@ namespace IQ.Accountant.System.Services.Services
         public Sale Insert(SaleProductDTO saleProduct)
         {
 
-            var product = _productRepository.GetProductByCode(saleProduct.ProductCode);
+            var product = _productRepository.GetProductByIqCode(saleProduct.ProductIqCode);
             var sale = new Sale()
             {
                 ProductId = product.Id,
@@ -46,21 +46,7 @@ namespace IQ.Accountant.System.Services.Services
             foreach (var sale in sales)
             {
                 var product = _productRepository.Get(sale.ProductId);
-                var tax = product.ProductTax != null ? product.ProductTax : 1;
-                salesDto.Add(new SaleDTO()
-                {
-                    SaleId = sale.Id,
-                    ProductId = product.Id,
-                    ProductName = product.ProductName,
-                    ProductQuantity = sale.Quantity,
-                    ProductPrice = product.ProductPrice,
-                    ProductUnit = product.ProductUnit,
-                    ProductCode = product.ProductCode,
-                    ProductTax = (float)tax,
-                    ImageUrl = _imageRepository.GetByProductId(product.Id),
-                    //VideoUrl = _vedioRepository.GetByProducrId(product.Id),
-                    saleTime = sale.AddedDate.ToString()
-                });
+                salesDto.Add(ConvertSaleToSaleDTO(sale));
             }
             return salesDto;
 
@@ -80,20 +66,26 @@ namespace IQ.Accountant.System.Services.Services
             {
                 var product = _productRepository.Get(sale.ProductId);
                 var tax = product.ProductTax != null ? product.ProductTax : 1;
-                salesDto.Add(new SaleDTO()
-                {
-                    SaleId = sale.Id,
-                    ProductId = product.Id,
-                    ProductName = product.ProductName,
-                    ProductQuantity = sale.Quantity,
-                    ProductPrice = product.ProductPrice,
-                    ProductUnit = product.ProductUnit,
-                    ProductCode = product.ProductCode,
-                    ProductTax = (float)tax,
-                    ImageUrl = _imageRepository.GetByProductId(product.Id),
-                    //VideoUrl = _vedioRepository.GetByProducrId(product.Id),
-                    saleTime = sale.AddedDate.ToString()
-                });
+                salesDto.Add(ConvertSaleToSaleDTO(sale));
+            }
+            return salesDto;
+        }
+
+        public IEnumerable<SaleDTO> SearchByIqCode(string code)
+        {
+
+            var productId = _productRepository.GetProductByIqCode(code);
+            if (productId == null)
+            {
+                return null;
+            }
+            var sales = this.Get().Where(x => x.ProductId == productId.Id).ToList();
+            var salesDto = new List<SaleDTO>();
+            foreach (var sale in sales)
+            {
+                var product = _productRepository.Get(sale.ProductId);
+                var tax = product.ProductTax != null ? product.ProductTax : 1;
+                salesDto.Add(ConvertSaleToSaleDTO(sale));
             }
             return salesDto;
         }
@@ -103,6 +95,33 @@ namespace IQ.Accountant.System.Services.Services
             return new TableCount()
             {
                 Count = _saleRepository.Get().Count()
+            };
+        }
+
+        private SaleDTO ConvertSaleToSaleDTO(Sale sale)
+        {
+            var image = _imageRepository.GetImage(sale.ProductId);
+            var video = _imageRepository.GetVideo(sale.ProductId);
+            var imageUrl = image == null ? "" : image.Url;
+            var videoUrl = video == null ? "" : video.Url;
+
+            var product = _productRepository.Get(sale.ProductId);
+
+            return new SaleDTO()
+            {
+                SaleId = sale.Id,
+                ProductId = sale.ProductId,
+                ProductName = product.ProductName,
+                ProductQuantity = sale.Quantity,
+                ProductPrice = product.ProductPrice,
+                ProductUnit = product.ProductUnit,
+                ProductCode = product.ProductCode,
+                ProductNote = product.ProductNote,
+                ProductTax = product.ProductTax,
+                ImageUrl = imageUrl,
+                VideoUrl = videoUrl,
+                ProductIqCode = product.ProductIqCode,
+                saleTime = sale.AddedDate.ToString()
             };
         }
 

@@ -15,4 +15,8 @@ export class ImageVideoService {
   GetVideosByProductCode(productCode:string):Observable<ImageVideo[]>{
     return this.http.get<ImageVideo[]>(ImageVideoController.getByProductCode.toString()+productCode);
   }
+
+  GetVideosByProductIqCode(productCode:string):Observable<ImageVideo[]>{
+    return this.http.get<ImageVideo[]>(ImageVideoController.getByProductIqCode.toString()+productCode);
+  }
 }

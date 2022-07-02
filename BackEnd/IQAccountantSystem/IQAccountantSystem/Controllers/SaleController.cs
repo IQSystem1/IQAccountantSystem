@@ -49,6 +49,13 @@ namespace IQAccountantSystem.Controllers
             return _saleService.SearchByCode(code);
         }
 
+        [HttpGet("SearchByIqCode/{code}")]
+        public IEnumerable<SaleDTO> SearchByIqCode(string code)
+        {
+
+            return _saleService.SearchByIqCode(code);
+        }
+
 
     }
 }

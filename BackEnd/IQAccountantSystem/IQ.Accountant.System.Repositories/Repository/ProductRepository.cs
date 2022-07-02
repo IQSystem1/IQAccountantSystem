@@ -87,14 +87,14 @@ namespace IQ.Accountant.System.Repositories.Repository
                     productDto.productCode = "";
                 if (productDto.productName == null)
                     productDto.productName = "";
-                if (productDto.productUnit == null)
-                    productDto.productUnit = "";
+                if (productDto.productIqCode == null)
+                    productDto.productIqCode = "";
 
 
                 var sp1 = new SqlParameter("@productCode", productDto.productCode);
                 var sp2 = new SqlParameter("@productName", productDto.productName);
-                var sp3 = new SqlParameter("@productUnit", productDto.productUnit);
-                products = _context.products.FromSqlRaw("Exec SEARCH_PRODUCT @productCode , @productName , @productUnit", sp1, sp2, sp3).ToList();
+                var sp3 = new SqlParameter("@productIqCode", productDto.productIqCode);
+                products = _context.products.FromSqlRaw("Exec SEARCH_PRODUCT @productCode , @productName , @productIqCode", sp1, sp2, sp3).ToList();
             }
             return products;
 

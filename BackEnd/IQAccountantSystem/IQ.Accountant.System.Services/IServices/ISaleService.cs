@@ -12,6 +12,7 @@ namespace IQ.Accountant.System.Services.IServices
         IEnumerable<SaleDTO> GetSales(PaginationInfo paginationInfo);
         TableCount GetCount();
         IEnumerable<SaleDTO> SearchByCode(string code);
+        IEnumerable<SaleDTO> SearchByIqCode(string code);
 
     }
 }
