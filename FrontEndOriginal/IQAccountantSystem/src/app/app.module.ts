@@ -16,10 +16,11 @@ import { NgxSpinnerModule } from "ngx-spinner";
 
 import { ToastrModule } from 'ngx-toastr';
 import { ShowProductComponent } from './show-product/show-product.component';
-import { PrintPdfComponent } from './print-pdf/print-pdf.component';
 import { PrintNoteComponent } from './print-note/print-note.component';
 import { ShowVideosComponent } from './show-videos/show-videos.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { SalesMainComponent } from './sales/sales-main/sales-main.component';
+import { VideoPageComponent } from './video-page/video-page.component';
 
 
 @NgModule({
@@ -30,9 +31,9 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     HeaderNavbarComponent,
     HeaderTitleComponent,
     ShowProductComponent,
-    PrintPdfComponent,
     PrintNoteComponent,
-    ShowVideosComponent
+    ShowVideosComponent,
+    VideoPageComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

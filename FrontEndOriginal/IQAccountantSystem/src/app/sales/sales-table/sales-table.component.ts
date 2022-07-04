@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
 import { PaginationInfo } from 'src/app/Models/PaginationInfo';
+import { ProductDTO } from 'src/app/Models/ProductDTO';
 import { SaleDTO } from 'src/app/Models/SaleDTO';
+import { PrintPdfComponent } from 'src/app/print-barcode/print-pdf.component';
 import { SaleService } from 'src/app/Services/sale.service';
 import { ShowVideosComponent } from 'src/app/show-videos/show-videos.component';
+import { EditProductComponent } from '../edit-product/edit-product.component';
+import { ShowProducDialogComponent } from '../show-produc-dialog/show-produc-dialog.component';
 
 
 @Component({
@@ -42,7 +47,6 @@ export class SalesTableComponent implements OnInit {
     this.saleService.get(this.paginationInfo).subscribe(
       data=>{
         this.sales = data;
-        console.log(this.sales)
       },error=>{
         console.log(error);
       }
@@ -56,6 +60,7 @@ export class SalesTableComponent implements OnInit {
         {
           if(data==null)
             this.toastr.warning("لا يوجد منتج بهذا الكود")
+          this.dialog.open(ShowProducDialogComponent,{data:data[0],width:"100%"})
           this.sales=data
         }
       )
@@ -74,7 +79,14 @@ export class SalesTableComponent implements OnInit {
         {
           if(data==null)
             this.toastr.warning("لا يوجد منتج بهذا الكود")
-          this.sales=data
+          else
+          {
+
+            let product:ProductDTO = ConvertSaleDTOToProductDTO(data[0]);
+            product.productCode = "";
+            this.dialog.open(ShowProducDialogComponent,{data:data[0],width:"100%"})
+          }
+            this.sales=data
         }
       )
     
@@ -92,6 +104,21 @@ export class SalesTableComponent implements OnInit {
   OpenVideosDialog(sale:SaleDTO){
     this.dialog.open(ShowVideosComponent,{data:sale,width:"100%"})
   }
+  OpenPrintBarcode(sale:SaleDTO){
+    let product:ProductDTO = {
+      productIqCode : sale.productIqCode,
+      productNote:sale.productNote,
+      productName:sale.productName
+    }
+    this.dialog.open(PrintPdfComponent,{data:product,width:"100%"})
+  }
+
+  OpenEditProduct(sale:SaleDTO){
+    let product =ConvertSaleDTOToProductDTO(sale);
+    this.dialog.open(EditProductComponent,{data:product,width:"100%"})
+  }
+
+  
   
 }
 function isNumber(value: string | number): boolean
@@ -101,3 +128,29 @@ function isNumber(value: string | number): boolean
            !isNaN(Number(value.toString())));
 }
 
+
+function ConvertSaleDTOToProductDTO(sale:SaleDTO):ProductDTO{
+  let product:ProductDTO = {
+    productCode : sale.productCode,
+    productId:sale.productId,
+    productIqCode:sale.productIqCode,
+    productName:sale.productName,
+    productNote:sale.productNote,
+    productTax:sale.productTax,
+    productPrice:sale.productPrice,
+    productUnit:sale.productUnit,
+    videoUrl:sale.videoUrl,
+    imageUrl:sale.imageUrl
+  }
+  return product;
+}
+
+
+function ConvertSaleDTOsToProductDTOs(sales:SaleDTO[]):ProductDTO[]{
+  let products:ProductDTO[] = []
+  sales.forEach((sale)=>{
+    products.push(ConvertSaleDTOToProductDTO(sale))
+  }
+  )
+  return products;
+}

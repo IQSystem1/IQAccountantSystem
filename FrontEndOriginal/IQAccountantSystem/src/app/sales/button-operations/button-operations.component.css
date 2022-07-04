@@ -1,14 +1,30 @@
-.operation{
-    font-size: 30px;
-    background-color: #969899;
+
+.operations{
+    margin-right: 30px;
+    display: flex;
+}
+
+
+.operation-i{
+    font-size: 25px;
     cursor: pointer;
+    background-color: #bfbfda6e;
+    margin: 10px;
+    
+    text-align: center;
     padding: 10px;
-    border-radius: 20px;
-    margin-bottom: 10px;
+    border-radius: 50%;
 }
-.operation:hover{
-    background-color: #cddce9 ;
+.operation-i:hover{
+    background-color: #67677c6e;
 }
-.operation i{
-    margin-right: 10px;
+
+.hide .show {
+    visibility: hidden;
+}
+
+.show{
+    background-color: #d7dee5;
+    padding: 5px;
+    border-radius: 10px;
 }

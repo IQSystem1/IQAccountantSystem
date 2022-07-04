@@ -37,7 +37,6 @@ export class SearchProductComponent implements OnInit {
         
       }
     )
-    console.log(this.products)
 
   }
 

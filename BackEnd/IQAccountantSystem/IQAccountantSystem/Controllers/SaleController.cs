@@ -20,7 +20,7 @@ namespace IQAccountantSystem.Controllers
             _saleRepository = saleRepository;
             _saleService = saleService;
         }
-
+            
 
 
         [HttpPost]

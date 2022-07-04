@@ -1,0 +1,21 @@
+
+<mdb-carousel [interval]="0" [animation]="'slide'"  >
+    <mdb-carousel-item *ngFor="let product of products">
+        <div class="row">
+            <div class="col-8">
+                <video width="100%"  style="width: 100%;">
+                    <source [src]="product.videoUrl">
+                </video>
+                <button class="btn btn-primary" (click)="navigateWithState(product)">مشاهدة الفيديو</button>
+            </div>
+            <div class="col-4">
+                <div class="text-center">
+                    <h1>{{product.productName}}</h1>
+                    <p>{{product.productNote}}</p>
+                    <button class="btn btn-primary" (click)="OpenPrintDialog(product)">طباعة</button>
+                </div>
+            </div>
+        </div>
+        
+    </mdb-carousel-item>    
+</mdb-carousel>        

@@ -19,8 +19,7 @@ export class VideoService {
     return this.http.get<Video>(VideoController.get.toString()+id.toString());
   }
   Post(video:Video):Observable<Video>{
-    console.log(video);
-    debugger;
+
     return this.http.post<Video>(VideoController.post.toString(),video);
   }
   Put(video:Video):Observable<SuccessMessage>{

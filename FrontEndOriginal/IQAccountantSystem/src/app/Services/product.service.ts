@@ -31,9 +31,9 @@ export class ProductService {
     return this.http.delete<SuccessMessage>(ProductController.delete.toString()+id.toString());
   }
 
-  GetByProductCode(code:string):Observable<ProductDTO>
+  GetByProductCode(code:string):Observable<ProductDTO[]>
   {
-    return this.http.get<ProductDTO>(ProductController.getByCode.toString()+code)
+    return this.http.get<ProductDTO[]>(ProductController.getByCode.toString()+code)
   }
 
   Search(productDTO:ProductDTO):Observable<ProductDTO[]>{

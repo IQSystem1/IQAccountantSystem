@@ -1,15 +1,17 @@
-<mdb-carousel [interval]="0" [animation]="'slide'" *ngIf="videos.length" >
-    <mdb-carousel-item *ngFor="let video of videos">
+<mdb-carousel [interval]="0" [animation]="'slide'"  >
+    <mdb-carousel-item *ngFor="let product of products">
         <video width="100%" controls>
-            <source [src]="video.url">
+            <source [src]="product.videoUrl">
         </video>
-        <div class="carousel-caption" *ngIf="sale.productNote">
-          <h3 class="h3-responsive">ملاحظة</h3>
-          <p>{{sale.productNote}}</p>
+        <div class="carousel-caption" *ngIf="product.productNote">
+          <h3 class="h3-responsive"><strong>{{product.productName}}</strong></h3>
+          <p>{{product.productNote}}</p>
+          <button class="btn btn-primary" (click)="WatchVideo(product.videoUrl)">مشاهدة الفيديو</button>
+
         </div>
     </mdb-carousel-item>
   </mdb-carousel>
 
-  <div *ngIf="!videos.length">
+  <div *ngIf="!products.length">
     No Videos <button class="btn btn-primary" (click)="AddVideo()" [routerLink]="'../edit/'+productId">Add Video</button>
   </div>

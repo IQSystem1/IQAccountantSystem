@@ -14,6 +14,9 @@ import { SearchProductComponent } from './search-product/search-product.componen
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { AddProductWithCodeComponent } from './add-product-with-code/add-product-with-code.component';
+import { PrintPdfComponent } from '../print-barcode/print-pdf.component';
+import { ShowProducDialogComponent } from './show-produc-dialog/show-produc-dialog.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import { AddProductWithCodeComponent } from './add-product-with-code/add-product
     EditProductComponent,
     DeleteProductComponent,
     AddProductWithCodeComponent,
-    
+    PrintPdfComponent,
+    ShowProducDialogComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +39,7 @@ import { AddProductWithCodeComponent } from './add-product-with-code/add-product
     MatDialogModule,
     ReactiveFormsModule,
     FormsModule,
-    
+    MDBBootstrapModule.forRoot()
 
   ]
 })

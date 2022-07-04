@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { ProductDTO } from '../Models/ProductDTO';
 import { FileService } from '../Services/file.service';
@@ -12,28 +13,18 @@ import { ProductService } from '../Services/product.service';
 export class PrintNoteComponent implements OnInit {
 
   @ViewChild('Card',{static:false}) el!:ElementRef ;
-  product:ProductDTO = {
-    barcodeImage: null
-  }
+  
 
   private sub: any;
   id:number = 0;
 
-  constructor(private route: ActivatedRoute, private productService:ProductService, private fileService:FileService) 
+  constructor(private route: ActivatedRoute, private productService:ProductService, @Inject(MAT_DIALOG_DATA) public product:ProductDTO) 
   {
     
   }
 
   ngOnInit(): void {
-    this.sub = this.route.params.subscribe(params => {
-      this.id = +params['id'];
-      console.log(this.id)
-      this.productService.GetByProductCode(this.id.toString()).subscribe(
-        data=>{
-          this.product = data;
-      }
-      )
-    })
+  
   }
 
   Print(){

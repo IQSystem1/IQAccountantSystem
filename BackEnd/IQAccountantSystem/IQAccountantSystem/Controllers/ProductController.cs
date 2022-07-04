@@ -30,12 +30,10 @@ namespace IQAccountantSystem.Controllers
         }
 
         [HttpGet("Get/{code}")]
-        public ProductDTO Get(string code)
+        public IEnumerable<ProductDTO> Get(string code)
         {
             var product = _productService.Search(new ProductDTO { productCode = code });
-            if (product.Count() > 1)
-                return null;
-            return product.FirstOrDefault();
+            return product;
         }
 
         
