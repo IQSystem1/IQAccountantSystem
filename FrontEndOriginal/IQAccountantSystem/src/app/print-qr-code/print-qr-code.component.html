@@ -1,0 +1,16 @@
+
+<div class="container-card m-auto" >
+    <div class="card">
+      <img [src]="qrCodeImage" class="card-img-top"  alt="Card image cap">
+      <div class="card-body">
+        <h5  class="card-title" >Product : {{product.productName}}</h5>
+        <p  class="card-text" *ngIf="product.productNote"> {{product.productNote}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="row print-button m-auto">
+    <button (click)="Print()" class="btn btn-primary">طباعة</button> 
+  </div>
+  
+  
+  

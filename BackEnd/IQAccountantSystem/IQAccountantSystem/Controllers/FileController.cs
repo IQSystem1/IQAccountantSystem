@@ -1,6 +1,11 @@
 ﻿using IQ.Accountant.System.Entities.DTO;
 using IQ.Accountant.System.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
+using QRCoder;
+using System;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace IQAccountantSystem.Controllers
@@ -25,6 +30,12 @@ namespace IQAccountantSystem.Controllers
         public Task<SuccessMessage> UploadFileAsync([FromForm] FileDTO fileToUpload)
         {
             return _fileService.UploadFileAsync(fileToUpload.file);
+        }
+
+        [HttpGet("Qrcode/{qrcode}")]
+        public IActionResult Index(string qrcode)
+        {
+            return File(_fileService.GenerateQrcode(qrcode), "image/jpeg");
         }
     }
 }

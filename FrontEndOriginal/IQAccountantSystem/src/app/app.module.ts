@@ -21,6 +21,8 @@ import { ShowVideosComponent } from './show-videos/show-videos.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SalesMainComponent } from './sales/sales-main/sales-main.component';
 import { VideoPageComponent } from './video-page/video-page.component';
+import { PrintQrCodeComponent } from './print-qr-code/print-qr-code.component';
+import { PrintBarcodeComponent } from './print-barcode/print-barcode.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { VideoPageComponent } from './video-page/video-page.component';
     ShowProductComponent,
     PrintNoteComponent,
     ShowVideosComponent,
-    VideoPageComponent
+    VideoPageComponent,
+    PrintQrCodeComponent,
+    PrintBarcodeComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

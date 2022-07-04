@@ -1,0 +1,21 @@
+.note{
+    margin: 10px;
+}
+.note-info{
+    width: 90%;
+    background-color: #406868;
+    margin: auto;
+    border-radius: 100px;
+    padding: 10px;
+}
+.start-video{
+    width: 100px;
+    
+}
+
+
+.carousel-control-next-icon,.carousel-control-prev-icon{
+    background-color: black;
+    cursor: pointer;
+}
+

@@ -1,1 +1,9 @@
-<p>video-page works!</p>
+<div class="container" *ngIf="videos.length==1">
+    <video width="100%" controls *ngFor="let video of videos" >
+        <source [src]="video.url">
+    </video>
+</div>
+ 
+<div class="container" *ngIf="videos.length!=1">
+    <p class="text-danger">لا يوجد فيديو لهذا المنتج</p>
+</div>

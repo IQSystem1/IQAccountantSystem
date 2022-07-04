@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
+using QRCoder;
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -81,6 +82,17 @@ namespace IQ.Accountant.System.Services.Services
             BarcodeLib.Barcode barcode = new BarcodeLib.Barcode();
             Image image = barcode.Encode(TYPE.CODE39Extended, code, Color.Black, Color.White, 250, 100);
             return ConverImageToBytes(image);
+
+        }
+
+        public byte[] GenerateQrcode(string code)
+        {
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(code,
+            QRCodeGenerator.ECCLevel.Q);
+            QRCode qrCode = new QRCode(qrCodeData);
+            Bitmap qrCodeImage = qrCode.GetGraphic(20);
+            return ConverImageToBytes(qrCodeImage);
 
         }
         private byte[] ConverImageToBytes(Image image)

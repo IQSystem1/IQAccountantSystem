@@ -1,5 +1,5 @@
 @media print{
-    app-navbar, app-header{
+    app-header{
         display: none;
     }
     

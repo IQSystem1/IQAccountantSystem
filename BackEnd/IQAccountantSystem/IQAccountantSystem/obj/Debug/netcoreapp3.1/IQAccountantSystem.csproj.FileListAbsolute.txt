@@ -144,3 +144,6 @@ C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQAccoun
 C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQAccountantSystem\obj\Debug\netcoreapp3.1\IQAccountantSystem.dll
 C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQAccountantSystem\obj\Debug\netcoreapp3.1\IQAccountantSystem.pdb
 C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQAccountantSystem\obj\Debug\netcoreapp3.1\IQAccountantSystem.genruntimeconfig.cache
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQAccountantSystem\bin\Debug\netcoreapp3.1\QRCoder.dll
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQAccountantSystem\bin\Debug\netcoreapp3.1\System.Text.Encoding.CodePages.dll
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQAccountantSystem\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Text.Encoding.CodePages.dll

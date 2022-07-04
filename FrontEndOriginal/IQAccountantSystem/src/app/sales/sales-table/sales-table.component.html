@@ -1,11 +1,28 @@
 <div class="container-fluid m-2">
   
-    <div class="float-end">
-      <input type="text" [(ngModel)]="code" (keyup.enter)="Search()" class="input-group-text m-2" placeholder=" بحث من خلال الكود">
-      <input type="text" [(ngModel)]="iqCode" (keyup.enter)="SearchByIqCode()" class="input-group-text m-2" placeholder=" بحث من خلال كود الشركة">
-
-    </div>
-  
+  <div class="container"> 
+    <div class="search">
+       <div class="row">
+         <div class="col-md-6">
+           <div class="search-1">
+             <i class='bx bx-search-alt'></i> 
+             <input [(ngModel)]="code" (keyup.enter)="Search()" type="text" placeholder="كود المنتج"> 
+            </div> 
+          </div> 
+          <div class="col-md-6"> 
+            <div> 
+              <div class="search-2"> 
+                <i class='bx bxs-map' ></i> 
+                <input [(ngModel)]="iqCode" (keyup.enter)="SearchByIqCode()" type="text" placeholder="كود المنتج الخاص"> 
+              </div> 
+            </div> 
+          </div> 
+        </div> 
+      </div>
+</div>
+<div class="btn-sale">
+  <button class="btn btn-info" routerLink="../sale">Sale</button>
+</div>
 
   <table class="table table-bordered" id="table">
     <thead>
@@ -28,11 +45,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let sale of sales">
-        <td *ngIf="sale.videoUrl"> <button  class="btn btn-danger" (click)="OpenVideosDialog(sale)">مشاهدة الفيديو</button></td>
+        <td *ngIf="sale.videoUrl"> <button  class="btn btn-danger" (click)="WatchVideo(sale.productIqCode)">مشاهدة الفيديو</button></td>
         <td *ngIf="!sale.videoUrl"> <button  class="btn btn-primary" [routerLink]="'edit/'+sale.productId">اضافة فيديو</button></td>
         
         <td *ngIf="!sale.videoUrl"> </td>
-        <td *ngIf="sale.videoUrl"> <button  class="btn btn-danger" (click)="OpenPrintBarcode(sale)">طباعة الباركود</button></td>
+        <td *ngIf="sale.videoUrl"> <button  class="btn btn-success m-1" [routerLink]="'barcode/'+sale.productIqCode">طباعة الباركود</button>
+          <button  class="btn btn-primary m-1" [routerLink]="'qrcode/'+sale.productIqCode"> كود Qr طباعة ال </button>
+        </td>
 
         <th>{{sale.productPrice*sale.productQuantity}} {{sale.productUnit}}</th>
         <th>{{sale.saleTime | date: 'yyyy/MM/dd : hh:mm:ss'}}</th>

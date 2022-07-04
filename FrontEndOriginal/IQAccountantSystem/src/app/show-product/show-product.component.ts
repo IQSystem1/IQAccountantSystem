@@ -9,7 +9,7 @@ import { PaginationInfo } from '../Models/PaginationInfo';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteProductComponent } from '../sales/delete-product/delete-product.component';
 import { PrintNoteComponent } from '../print-note/print-note.component';
-import { PrintPdfComponent } from '../print-barcode/print-pdf.component';
+import { PrintBarcodeComponent } from '../print-barcode/print-barcode.component';
 
 @Component({
   selector: 'app-show-product',
@@ -63,7 +63,7 @@ export class ShowProductComponent implements OnInit {
     }
  }
  OpenPrintDialog(product:ProductDTO){
-  this.dialog.open(PrintPdfComponent,{data:product,width:"100%"})
+  this.dialog.open(PrintBarcodeComponent,{data:product,width:"100%"})
  }
 
  OpenPrintNoteDialog(product:ProductDTO){

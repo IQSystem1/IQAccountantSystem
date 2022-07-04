@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { PaginationInfo } from 'src/app/Models/PaginationInfo';
 import { ProductDTO } from 'src/app/Models/ProductDTO';
 import { SaleDTO } from 'src/app/Models/SaleDTO';
-import { PrintPdfComponent } from 'src/app/print-barcode/print-pdf.component';
+import { PrintBarcodeComponent } from 'src/app/print-barcode/print-barcode.component';
 import { SaleService } from 'src/app/Services/sale.service';
 import { ShowVideosComponent } from 'src/app/show-videos/show-videos.component';
 import { EditProductComponent } from '../edit-product/edit-product.component';
@@ -84,7 +84,7 @@ export class SalesTableComponent implements OnInit {
 
             let product:ProductDTO = ConvertSaleDTOToProductDTO(data[0]);
             product.productCode = "";
-            this.dialog.open(ShowProducDialogComponent,{data:data[0],width:"100%"})
+            this.dialog.open(ShowProducDialogComponent,{data:product,width:"100%"})
           }
             this.sales=data
         }
@@ -99,18 +99,17 @@ export class SalesTableComponent implements OnInit {
     this.paginationInfo.pageSize-=10;
     this.GetSales();
   }
-
-
-  OpenVideosDialog(sale:SaleDTO){
-    this.dialog.open(ShowVideosComponent,{data:sale,width:"100%"})
+  WatchVideo(productIqCode?:string){
+    window.open("video/"+productIqCode, "_blank", "height=500,width=1000");
   }
+
   OpenPrintBarcode(sale:SaleDTO){
     let product:ProductDTO = {
       productIqCode : sale.productIqCode,
       productNote:sale.productNote,
       productName:sale.productName
     }
-    this.dialog.open(PrintPdfComponent,{data:product,width:"100%"})
+    this.dialog.open(PrintBarcodeComponent,{data:product,width:"100%"})
   }
 
   OpenEditProduct(sale:SaleDTO){

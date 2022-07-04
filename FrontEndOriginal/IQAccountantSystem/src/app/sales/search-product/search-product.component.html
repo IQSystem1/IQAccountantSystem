@@ -56,10 +56,12 @@
     </div>
     <div class="card px-1 py-4">
         <div class="card-body">
-            <div class="row mb-3" *ngFor="let prod of productToSale | keyvalue">
-                <div class="col-8">
+            <div class="row mb-3 prod-container" *ngFor="let prod of productToSale | keyvalue">
+                <div class="col-8 prod-info">
                     {{prod.key}}    
-                    {{prod.value}}
+
+                    <span class="prod-value">{{prod.value}}</span>
+                    الكمية
                 </div>
                 <div class="col-4">
                 <button class="btn btn-primary m" (click)="DeleteProductToSale(prod.key)">حذف</button>

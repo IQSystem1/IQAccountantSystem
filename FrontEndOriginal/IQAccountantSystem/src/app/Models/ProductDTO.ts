@@ -10,5 +10,7 @@ export interface ProductDTO{
     videoUrl ?:string;
     barcode?:Blob;
     barcodeImage?:string | ArrayBuffer | null;
+    qrcodeImage?:string | ArrayBuffer | null;
+    qrcode?:Blob;
     productIqCode?:string;
 }

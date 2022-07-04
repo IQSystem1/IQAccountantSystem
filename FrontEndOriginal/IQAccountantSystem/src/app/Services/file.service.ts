@@ -26,4 +26,9 @@ export class FileService {
     
     return this.http.get(FileController.get.toString()+code, { responseType: 'blob' });    
   } 
+
+  GenerateQrCode(code:string):Observable<Blob>{
+    
+    return this.http.get(FileController.get.toString()+"Qrcode/"+code, { responseType: 'blob' });    
+  } 
 }

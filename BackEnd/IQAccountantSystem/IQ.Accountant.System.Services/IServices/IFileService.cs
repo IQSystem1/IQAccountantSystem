@@ -12,6 +12,8 @@ namespace IQ.Accountant.System.Services.IServices
     {
         Task<SuccessMessage> UploadFileAsync(IFormFile fileToUpload);
         byte[] GenerateBarcode(string code);
+        byte[] GenerateQrcode(string code);
+
 
     }
 }

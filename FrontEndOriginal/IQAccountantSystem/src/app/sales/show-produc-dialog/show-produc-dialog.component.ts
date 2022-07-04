@@ -3,7 +3,8 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ImageVideo } from 'src/app/Models/Image';
 import { ProductDTO } from 'src/app/Models/ProductDTO';
-import { PrintPdfComponent } from 'src/app/print-barcode/print-pdf.component';
+import { PrintBarcodeComponent } from 'src/app/print-barcode/print-barcode.component';
+import { FileService } from 'src/app/Services/file.service';
 import { ImageVideoService } from 'src/app/Services/imageVideo.service';
 import { ProductService } from 'src/app/Services/product.service';
 
@@ -14,12 +15,21 @@ import { ProductService } from 'src/app/Services/product.service';
 })
 export class ShowProducDialogComponent implements OnInit {
 
+  barcode:any;
+  qrcode:any;
   products:ProductDTO[] = [];
   videos:ImageVideo[] = [];
   constructor(@Inject(MAT_DIALOG_DATA) public product:ProductDTO, private productService:ProductService,
-  private videoService:ImageVideoService,private dialog:MatDialog, private router:Router) { }
+  private videoService:ImageVideoService,private dialog:MatDialog, private router:Router, private fileService:FileService) { }
 
   ngOnInit(): void {
+      
+    let videos = document.getElementsByTagName("video") as  HTMLCollectionOf<HTMLVideoElement>;
+   
+
+    this.GenerateBarcode();
+    this.GenerateQrcode();
+    debugger;
     if(this.product.productCode){
       this.productService.GetByProductCode(this.product.productCode).subscribe(
         data=>{
@@ -38,23 +48,70 @@ export class ShowProducDialogComponent implements OnInit {
       this.products.push(this.product);
     }
     
+    
   }
   OpenPrintDialog(product:ProductDTO){
-    this.dialog.open(PrintPdfComponent,{data:product})
+    this.dialog.open(PrintBarcodeComponent,{data:product})
   }
 
-  WatchVideo(videoUrl:string|undefined){
-      //window.open(videoUrl, "_blank", "height=500,width=1000");
-      const popup = window.open(
-        videoUrl,
-        '_blank',
-        "height=500,width=1000"
-      )?.moveTo(2500, 50);
+  WatchVideo(productIqCode?:string){
+      window.open("video/"+productIqCode, "_blank", "height=500,width=1000");
   }
 
-  navigateWithState(product:ProductDTO) {
-    this.router.navigate(['/video/'+product.videoUrl]);
 
+
+  GenerateQrcode(){
+    if(this.product.productIqCode){
+      this.fileService.GenerateQrCode(this.product.productIqCode).subscribe(
+        data=>{
+        this.product.qrcode = data;
+          this.CreateQrcodeImage(this.product);
+        }
+      )
+    }
+    
   }
+  GenerateBarcode(){
+    if(this.product.productIqCode){
+      this.fileService.GenerateBarcode(this.product.productIqCode).subscribe(
+        data=>{
+        this.product.barcode = data;
+          this.CreateBarcodeImage(this.product);
+        }
+      )
+    }
+    
+  }
+
+  
+  CreateBarcodeImage(product: ProductDTO) {
+    let reader = new FileReader();
+    reader.addEventListener("load", () => {
+       this.barcode = reader.result;
+       console.log(product.barcodeImage)
+    }, false);
+ 
+    if (product.barcode) {
+       reader.readAsDataURL(product.barcode);
+       console.log(product.barcode)
+       
+    }
+
+ }
+ CreateQrcodeImage(product: ProductDTO) {
+  let reader = new FileReader();
+  reader.addEventListener("load", () => {
+     this.qrcode = reader.result;
+  }, false);
+
+  if (product.qrcode) {
+     reader.readAsDataURL(product.qrcode);
+     console.log(product.qrcode)
+  }
+  
+
+}
+
+  
 
 }

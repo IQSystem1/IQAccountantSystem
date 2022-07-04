@@ -14,7 +14,7 @@ import { SearchProductComponent } from './search-product/search-product.componen
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { AddProductWithCodeComponent } from './add-product-with-code/add-product-with-code.component';
-import { PrintPdfComponent } from '../print-barcode/print-pdf.component';
+import { PrintBarcodeComponent } from '../print-barcode/print-barcode.component';
 import { ShowProducDialogComponent } from './show-produc-dialog/show-produc-dialog.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
@@ -30,7 +30,6 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     EditProductComponent,
     DeleteProductComponent,
     AddProductWithCodeComponent,
-    PrintPdfComponent,
     ShowProducDialogComponent
   ],
   imports: [

@@ -1,3 +1,20 @@
 .card-body{
     width: 600px;
+    overflow-y: scroll;
+}
+.prod-container{
+    border: 1px solid;
+    padding: 10px;
+    align-items: center;
+    height: 75px;
+    border-radius: 50px;
+}
+.prod-info{
+    font-size: 20px;
+}
+.prod-value{
+    color: white;
+    background-color: red;
+    padding: 5px;
+    border-radius: 10px;
 }
