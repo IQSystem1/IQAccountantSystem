@@ -27,7 +27,7 @@ export class SearchProductComponent implements OnInit {
   GetProduct(){
     this.productService.Search(this.product).subscribe(
       data=>{
-        if(data.length==0){
+        if(data.length==0 && this.product.productCode){
           this.isProduct = false;
         }else{
           this.isProduct = true;  
@@ -68,7 +68,15 @@ export class SearchProductComponent implements OnInit {
       this.productToSale.delete(productKey);
     }
   }
+
+  AddquantityProduct(productKey:string,quantity:any){
+    debugger;
+    this.productToSale.set(productKey,Number(quantity.value))
+    
+  }
+
   Submit(){
+    debugger;
     if(this.productToSale.values().next().value){
       this.productToSale.forEach((value , key )=> {
         let saleProduct:SaleProductDTO = {
@@ -93,6 +101,18 @@ export class SearchProductComponent implements OnInit {
         this.toastr.error(error.message)
       }
     )
+  }
+  ChangeProductCode(){
+    this.product.productIqCode = "";
+    this.product.productName = "";
+  }
+  ChangeProductIqCode(){
+    this.product.productCode = "";
+    this.product.productName = "";
+  }
+  ChangeProductName(){
+    this.product.productCode = "";
+    this.product.productIqCode = "";
   }
   
 }

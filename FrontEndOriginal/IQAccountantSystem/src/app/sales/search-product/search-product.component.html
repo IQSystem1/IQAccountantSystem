@@ -6,8 +6,9 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <input class="form-control" [ngModelOptions]="{standalone: true}" (ngModelChange)="GetProduct()" id="fff" type="text" 
-                            [(ngModel)]="product.productCode"placeholder="الكود" > 
+                            <input class="form-control" [ngModelOptions]="{standalone: true}" 
+                            (keyup.enter)="GetProduct()" (ngModelChange)="ChangeProductCode()" 
+                            id="fff" type="text" [(ngModel)]="product.productCode"   placeholder="الكود" > 
                         </div>
                        
                     </div>
@@ -16,7 +17,9 @@
                 <div class="row mt-2">
                     <div class="col-12">
                         <div class="form-group">
-                            <input class="form-control" [ngModelOptions]="{standalone: true}" (ngModelChange)="GetProduct()" id="fff" type="text" [(ngModel)]="product.productIqCode" placeholder="كود المنتج الخاص"> 
+                            <input class="form-control" [ngModelOptions]="{standalone: true}" 
+                            (keyup.enter)="GetProduct()" (ngModelChange)="ChangeProductIqCode()" 
+                            id="fff" type="text" [(ngModel)]="product.productIqCode"  placeholder="كود المنتج الخاص"> 
                         </div>
                         
                     </div>
@@ -24,7 +27,9 @@
                 <div class="row mt-2">
                     <div class="col-12">
                         <div class="form-group">
-                            <input class="form-control" [ngModelOptions]="{standalone: true}" (ngModelChange)="GetProduct()" id="fff" type="text" [(ngModel)]="product.productName" placeholder="اسم المنتج"> 
+                            <input class="form-control" [ngModelOptions]="{standalone: true}" 
+                            (keyup.enter)="GetProduct()" (ngModelChange)="ChangeProductName()" 
+                            id="fff" type="text" [(ngModel)]="product.productName" placeholder="اسم المنتج"> 
                         </div>
                         
                     </div>
@@ -57,17 +62,21 @@
     <div class="card px-1 py-4">
         <div class="card-body">
             <div class="row mb-3 prod-container" *ngFor="let prod of productToSale | keyvalue">
-                <div class="col-8 prod-info">
+                <div class="col-3 prod-info">
                     {{prod.key}}    
 
+                </div>
+                <div class="col-7 btns">
+                    <button class="btn btn-primary m" (click)="DeleteProductToSale(prod.key)">حذف</button>
+                    <button class="btn btn-danger m-1" (click)="MinusOneProductToSale(prod.key)">-</button>
+                    <button class="btn btn-success"(click)="AddOneProductToSale(prod.key)">+</button>
+                    <input  type="number" #quan class="form-control input-quantity" (keyup.enter)="AddquantityProduct(prod.key,quan)" placeholder="اكتب الكمية">
+                    
+                </div>
+                <div class="col-2 prod-info">
                     <span class="prod-value">{{prod.value}}</span>
-                    الكمية
                 </div>
-                <div class="col-4">
-                <button class="btn btn-primary m" (click)="DeleteProductToSale(prod.key)">حذف</button>
-                <button class="btn btn-danger m-1" (click)="MinusOneProductToSale(prod.key)">-</button>
-                <button class="btn btn-success"(click)="AddOneProductToSale(prod.key)">+</button>
-                </div>
+
             </div>
         </div>
         

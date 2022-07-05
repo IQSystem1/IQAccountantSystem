@@ -9,7 +9,7 @@ import { PrintBarcodeComponent } from 'src/app/print-barcode/print-barcode.compo
 import { SaleService } from 'src/app/Services/sale.service';
 import { ShowVideosComponent } from 'src/app/show-videos/show-videos.component';
 import { EditProductComponent } from '../edit-product/edit-product.component';
-import { ShowProducDialogComponent } from '../show-produc-dialog/show-produc-dialog.component';
+import { ShowProductDialogComponent } from '../show-product-dialog/show-product-dialog.component';
 
 
 @Component({
@@ -60,7 +60,7 @@ export class SalesTableComponent implements OnInit {
         {
           if(data==null)
             this.toastr.warning("لا يوجد منتج بهذا الكود")
-          this.dialog.open(ShowProducDialogComponent,{data:data[0],width:"100%"})
+          this.dialog.open(ShowProductDialogComponent,{data:data[0],width:"100%"})
           this.sales=data
         }
       )
@@ -84,7 +84,7 @@ export class SalesTableComponent implements OnInit {
 
             let product:ProductDTO = ConvertSaleDTOToProductDTO(data[0]);
             product.productCode = "";
-            this.dialog.open(ShowProducDialogComponent,{data:product,width:"100%"})
+            this.dialog.open(ShowProductDialogComponent,{data:product,width:"100%"})
           }
             this.sales=data
         }

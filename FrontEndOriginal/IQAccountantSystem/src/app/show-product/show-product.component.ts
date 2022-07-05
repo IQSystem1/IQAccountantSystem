@@ -32,7 +32,6 @@ export class ShowProductComponent implements OnInit {
   }
   GetProduct(){
     this.spinner.show();
-    debugger;
     this.productService.Get(this.paginationInfo).subscribe(
       data=>{
         this.productDto = data;        

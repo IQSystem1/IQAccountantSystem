@@ -11,10 +11,31 @@
 }
 .prod-info{
     font-size: 20px;
+    align-items: center;
 }
 .prod-value{
     color: white;
-    background-color: red;
-    padding: 5px;
-    border-radius: 10px;
+    background-color: black;
+    padding: 10px;
+    border-radius: 50%;
+}
+.btns{
+    align-items: center;
+}
+.input-quantity{
+    border-radius:10px ;
+    width: 100px;
+    margin-left: 4px;
+    display: inline;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
 }

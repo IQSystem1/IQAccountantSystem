@@ -21,9 +21,9 @@
       <tr *ngFor="let product of productDto">
         <td><button class="btn btn-success" [routerLink]="'../edit/'+product.productId">تعديل</button></td>
         <td><button class="btn btn-danger" (click)="OpenDeleteComponent(product)">حذف</button></td>
-        <td><button class="btn btn-success" (click)="OpenPrintDialog(product)" >طباعة الباركود</button></td>
+        <td><button class="btn btn-success" [routerLink]="'../barcode/'+product.productIqCode" >طباعة الباركود</button></td>
         <td *ngIf="!product.productNote"></td>
-        <td *ngIf="product.productNote"><button class="btn btn-success" (click)="OpenPrintNoteDialog(product)" >طباعة الملاحظة</button></td>
+        <td *ngIf="product.productNote"><button class="btn btn-success" [routerLink]="'../qrcode/'+product.productIqCode" >كود Qr طباعة ال </button></td>
 
 
         <td><img [src]="product.imageUrl" width="100px" height="100px" alt="لا يوجد صورة"> </td>

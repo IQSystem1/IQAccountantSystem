@@ -1,0 +1,15 @@
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Repositories\bin\Release\netcoreapp3.1\IQ.Accountant.System.Repositories.deps.json
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Repositories\bin\Release\netcoreapp3.1\IQ.Accountant.System.Repositories.dll
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Repositories\bin\Release\netcoreapp3.1\IQ.Accountant.System.Repositories.pdb
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Repositories\bin\Release\netcoreapp3.1\IQ.Accountant.System.Entities.dll
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Repositories\bin\Release\netcoreapp3.1\IQ.Accountant.System.Model.dll
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Repositories\bin\Release\netcoreapp3.1\IQ.Accountant.System.Entities.pdb
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Repositories\bin\Release\netcoreapp3.1\IQ.Accountant.System.Model.pdb
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Repositories\obj\Release\netcoreapp3.1\IQ.Accountant.System.Repositories.csproj.AssemblyReference.cache
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Repositories\obj\Release\netcoreapp3.1\IQ.Accountant.System.Repositories.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Repositories\obj\Release\netcoreapp3.1\IQ.Accountant.System.Repositories.AssemblyInfoInputs.cache
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Repositories\obj\Release\netcoreapp3.1\IQ.Accountant.System.Repositories.AssemblyInfo.cs
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Repositories\obj\Release\netcoreapp3.1\IQ.Accountant.System.Repositories.csproj.CoreCompileInputs.cache
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Repositories\obj\Release\netcoreapp3.1\IQ.Accountant.System.Repositories.csproj.CopyComplete
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Repositories\obj\Release\netcoreapp3.1\IQ.Accountant.System.Repositories.dll
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Repositories\obj\Release\netcoreapp3.1\IQ.Accountant.System.Repositories.pdb

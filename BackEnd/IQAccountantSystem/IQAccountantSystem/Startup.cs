@@ -38,11 +38,8 @@ namespace IQAccountantSystem
             });
             services.AddDbContext<IQAccountantSystemContext>(option => option.UseSqlServer(Configuration.GetConnectionString("IQAccountantSystem")));
             services.AddScoped<IFileService, FileService>();
-            services.AddScoped<IRepository<Product>, Repository<Product>>();
-            services.AddScoped<IRepository<ImageVideo>, Repository<ImageVideo>>();
-            services.AddScoped<IRepository<ProductImageVideo>, Repository<ProductImageVideo>>();
-            services.AddScoped<IRepository<Sale>, Repository<Sale>>();
 
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IImageVideoRepository, ImageVideoRepository>();
             services.AddScoped<IProductImageVideoRepository, ProductImageVideoRepository>();

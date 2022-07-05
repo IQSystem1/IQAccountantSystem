@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>IQ.Accountant.System.Entities</id>
+    <version>1.0.0</version>
+    <authors>IQ.Accountant.System.Entities</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="Microsoft.AspNetCore.Mvc.Core" version="2.2.5" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Entities\bin\Debug\netcoreapp3.1\IQ.Accountant.System.Entities.dll" target="lib\netcoreapp3.1\IQ.Accountant.System.Entities.dll" />
+  </files>
+</package>

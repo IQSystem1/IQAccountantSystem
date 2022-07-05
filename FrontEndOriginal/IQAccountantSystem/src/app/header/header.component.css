@@ -22,6 +22,13 @@
 	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
+.logo{
+	height: 100%;
+	border-radius: 50px;
+}
+.container-logo{
+	background-color: #7f7f7f;
+}
 body
 {
 	font-family: 'Rubik', sans-serif;

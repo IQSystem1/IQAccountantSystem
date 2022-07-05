@@ -68,9 +68,9 @@
     </tbody>
     <div class="btns">
 
-      <button *ngIf="sales && sales.length<count" class="btn btn-success" (click)="Paginate()">See More</button>
-      <button *ngIf="sales && sales.length>=count" class="btn btn-danger" (click)="PaginateLess()">See Less</button>
-      <button *ngIf="!sales" class="btn btn-success" (click)="GetSales()">Show Sales</button>
+      <button *ngIf="sales && sales.length<count" class="btn btn-success m-1" (click)="Paginate()">See More</button>
+      <button *ngIf="sales && sales.length>10" class="btn btn-danger m-1" (click)="PaginateLess()">See Less</button>
+      <button *ngIf="!sales" class="btn btn-success m-1" (click)="GetSales()">Show Sales</button>
   
     </div>
    

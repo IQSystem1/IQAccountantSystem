@@ -1,0 +1,17 @@
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Services\bin\Release\netcoreapp3.1\IQ.Accountant.System.Services.deps.json
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Services\bin\Release\netcoreapp3.1\IQ.Accountant.System.Services.dll
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Services\bin\Release\netcoreapp3.1\IQ.Accountant.System.Services.pdb
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Services\bin\Release\netcoreapp3.1\IQ.Accountant.System.Entities.dll
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Services\bin\Release\netcoreapp3.1\IQ.Accountant.System.Model.dll
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Services\bin\Release\netcoreapp3.1\IQ.Accountant.System.Repositories.dll
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Services\bin\Release\netcoreapp3.1\IQ.Accountant.System.Entities.pdb
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Services\bin\Release\netcoreapp3.1\IQ.Accountant.System.Repositories.pdb
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Services\bin\Release\netcoreapp3.1\IQ.Accountant.System.Model.pdb
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Services\obj\Release\netcoreapp3.1\IQ.Accountant.System.Services.csproj.AssemblyReference.cache
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Services\obj\Release\netcoreapp3.1\IQ.Accountant.System.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Services\obj\Release\netcoreapp3.1\IQ.Accountant.System.Services.AssemblyInfoInputs.cache
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Services\obj\Release\netcoreapp3.1\IQ.Accountant.System.Services.AssemblyInfo.cs
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Services\obj\Release\netcoreapp3.1\IQ.Accountant.System.Services.csproj.CoreCompileInputs.cache
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Services\obj\Release\netcoreapp3.1\IQ.Accountant.System.Services.csproj.CopyComplete
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Services\obj\Release\netcoreapp3.1\IQ.Accountant.System.Services.dll
+C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Services\obj\Release\netcoreapp3.1\IQ.Accountant.System.Services.pdb
