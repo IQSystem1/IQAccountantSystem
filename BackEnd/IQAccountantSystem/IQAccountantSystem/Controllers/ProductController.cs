@@ -3,6 +3,7 @@ using IQ.Accountant.System.Entities.DTO;
 using IQ.Accountant.System.Model;
 using IQ.Accountant.System.Repositories.IRepository;
 using IQ.Accountant.System.Services.IServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace IQAccountantSystem.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductController : Controller
     {
         private readonly IProductRepository _productRepository;

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>IQ.Accountant.System.Services</id>
+    <version>1.0.0</version>
+    <authors>IQ.Accountant.System.Services</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="IQ.Accountant.System.Entities" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="IQ.Accountant.System.Repositories" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="BarcodeLib" version="2.4.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Configuration.Abstractions" version="6.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Configuration.Binder" version="6.0.0" exclude="Build,Analyzers" />
+        <dependency id="QRCoder" version="1.4.3" exclude="Build,Analyzers" />
+        <dependency id="WindowsAzure.Storage" version="9.3.3" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\warda\OneDrive\Desktop\IQAccountant\BackEnd\IQAccountantSystem\IQ.Accountant.System.Services\bin\Release\netcoreapp3.1\IQ.Accountant.System.Services.dll" target="lib\netcoreapp3.1\IQ.Accountant.System.Services.dll" />
+  </files>
+</package>

@@ -10,10 +10,9 @@ import { HeaderTitleComponent } from './header/header-title/header-title.compone
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import * as $ from "jquery";
 import { NgxSpinnerModule } from "ngx-spinner";
-
 import { ToastrModule } from 'ngx-toastr';
 import { ShowProductComponent } from './show-product/show-product.component';
 import { PrintNoteComponent } from './print-note/print-note.component';
@@ -23,7 +22,12 @@ import { SalesMainComponent } from './sales/sales-main/sales-main.component';
 import { VideoPageComponent } from './video-page/video-page.component';
 import { PrintQrCodeComponent } from './print-qr-code/print-qr-code.component';
 import { PrintBarcodeComponent } from './print-barcode/print-barcode.component';
-
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { ReadQrComponent } from './read-qr/read-qr.component';
+import { AuthModuleModule } from './auth-module/auth-module.module';
+import { AuthGuard } from './Guards/auth.guard';
+import { UserService } from './Services/user.service';
+import { TokenInterceptorService } from './Services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,8 @@ import { PrintBarcodeComponent } from './print-barcode/print-barcode.component';
     ShowVideosComponent,
     VideoPageComponent,
     PrintQrCodeComponent,
-    PrintBarcodeComponent
+    PrintBarcodeComponent,
+    ReadQrComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -48,12 +53,18 @@ import { PrintBarcodeComponent } from './print-barcode/print-barcode.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot() ,
     NgxSpinnerModule,
-    MDBBootstrapModule.forRoot()
-
+    MDBBootstrapModule.forRoot(),
+    ZXingScannerModule,
+    ReactiveFormsModule,
+    AuthModuleModule
 
   ],
-  providers: [
-
+  providers: [UserService,
+    AuthGuard,{
+      provide:HTTP_INTERCEPTORS,
+      useClass:TokenInterceptorService,
+      multi:true
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -180,6 +180,52 @@ namespace IQ.Accountant.System.Model.Migrations
                     b.ToTable("SALE");
                 });
 
+            modelBuilder.Entity("IQ.Accountant.System.Entities.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("ID")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("AddedDate")
+                        .HasColumnName("ADDED_DATA")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("IPAddress")
+                        .HasColumnName("IP_ADDRESS")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ImageId")
+                        .HasColumnName("IMAGE_ID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ImageVideoId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnName("MODEFIED_DATA")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Password")
+                        .HasColumnName("PASSWORD")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnName("USER_NAME")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ImageVideoId");
+
+                    b.HasIndex("UserName")
+                        .IsUnique()
+                        .HasFilter("[USER_NAME] IS NOT NULL");
+
+                    b.ToTable("USER");
+                });
+
             modelBuilder.Entity("IQ.Accountant.System.Entities.ProductImageVideo", b =>
                 {
                     b.HasOne("IQ.Accountant.System.Entities.ImageVideo", "imageVideo")
@@ -202,6 +248,13 @@ namespace IQ.Accountant.System.Model.Migrations
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("IQ.Accountant.System.Entities.User", b =>
+                {
+                    b.HasOne("IQ.Accountant.System.Entities.ImageVideo", "ImageVideo")
+                        .WithMany("Users")
+                        .HasForeignKey("ImageVideoId");
                 });
 #pragma warning restore 612, 618
         }

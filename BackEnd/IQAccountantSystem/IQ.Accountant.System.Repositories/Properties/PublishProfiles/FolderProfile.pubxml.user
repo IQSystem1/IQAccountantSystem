@@ -3,4 +3,7 @@
 https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
+  <PropertyGroup>
+    <History>True|2022-07-05T13:14:02.7736835Z;</History>
+  </PropertyGroup>
 </Project>

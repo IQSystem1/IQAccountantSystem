@@ -17,6 +17,7 @@ import { AddProductWithCodeComponent } from './add-product-with-code/add-product
 import { PrintBarcodeComponent } from '../print-barcode/print-barcode.component';
 import { ShowProductDialogComponent } from './show-product-dialog/show-product-dialog.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 @NgModule({
   declarations: [
@@ -38,8 +39,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     MatDialogModule,
     ReactiveFormsModule,
     FormsModule,
-    MDBBootstrapModule.forRoot()
-
+    MDBBootstrapModule.forRoot(),
+    ZXingScannerModule
   ]
 })
 export class SalesModule { }

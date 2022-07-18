@@ -3,17 +3,21 @@
   <div class="container"> 
     <div class="search">
        <div class="row">
-         <div class="col-md-6">
+         <div class="col-md-4">
            <div class="search-1">
              <i class='bx bx-search-alt'></i> 
              <input [(ngModel)]="code" (keyup.enter)="Search()" type="text" placeholder="كود المنتج"> 
             </div> 
           </div> 
-          <div class="col-md-6"> 
+          <div class="col-md-4"> 
+                <button style="width: 100%;" (click)="OpenQrRead()" class="btn btn-primary"> Qr Code قراءة </button>  
+            
+          </div> 
+          <div class="col-md-4"> 
             <div> 
               <div class="search-2"> 
                 <i class='bx bxs-map' ></i> 
-                <input [(ngModel)]="iqCode" (keyup.enter)="SearchByIqCode()" type="text" placeholder="كود المنتج الخاص"> 
+                <input [(ngModel)]="iqCode" (keyup.enter)="SearchByIqCode()" type="text" placeholder="كود المنتج الخاص "> 
               </div> 
             </div> 
           </div> 

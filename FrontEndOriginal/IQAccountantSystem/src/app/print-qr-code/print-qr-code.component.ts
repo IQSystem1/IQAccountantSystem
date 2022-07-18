@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { BlobDTO } from '../Models/BlobDTO';
 import { ProductDTO } from '../Models/ProductDTO';
 import { FileService } from '../Services/file.service';
 import { ProductService } from '../Services/product.service';
@@ -18,7 +19,7 @@ export class PrintQrCodeComponent implements OnInit {
   qrCode :any;
   qrCodeImage:any;
   iqCode = "";
-
+  file:any;
   constructor(private route: ActivatedRoute, private fileService:FileService,private dialog:MatDialog, private productService:ProductService) 
   {
     
@@ -33,6 +34,7 @@ export class PrintQrCodeComponent implements OnInit {
           data=>{
           this.qrCode = data;
             this.CreateImage(data);
+            let x = document.getElementById("qrImage") as HTMLImageElement;
           }
         )
       }
@@ -51,14 +53,20 @@ export class PrintQrCodeComponent implements OnInit {
   }
 
   CreateImage(blob:Blob) {
+    console.log(blob)
     let reader = new FileReader();
     reader.addEventListener("load", () => {
        this.qrCodeImage = reader.result;
     }, false);
  
     if (this.qrCode) {
-       reader.readAsDataURL(blob);
-       
+       reader.readAsDataURL(blob); 
     }
+
+ }
+
+ Read(){
+  var file = document.createElement("img") as HTMLImageElement;
+  
  }
 }

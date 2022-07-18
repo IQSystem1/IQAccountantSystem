@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="BarcodeLib" Version="2.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
@@ -20,12 +21,28 @@
     </PackageReference>
     <PackageReference Include="QRCoder" Version="1.4.3" />
     <PackageReference Include="Vintasoft.Barcode.AspNetCore.ApiControllers" Version="12.5.4.3" />
+    <PackageReference Include="ZXing.Net" Version="0.16.8" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\IQ.Accountant.System.Model\IQ.Accountant.System.Model.csproj" />
     <ProjectReference Include="..\IQ.Accountant.System.Repositories\IQ.Accountant.System.Repositories.csproj" />
     <ProjectReference Include="..\IQ.Accountant.System.Services\IQ.Accountant.System.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 

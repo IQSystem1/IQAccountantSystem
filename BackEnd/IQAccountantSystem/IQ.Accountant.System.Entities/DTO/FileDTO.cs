@@ -7,6 +7,6 @@ namespace IQ.Accountant.System.Entities.DTO
 {
     public class FileDTO
     {
-        public IFormFile file { get; set; }
+        public IFormFile File { get; set; }
     }
 }

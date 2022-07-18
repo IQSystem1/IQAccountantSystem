@@ -4,12 +4,15 @@ using IQ.Accountant.System.Repositories.IRepository;
 using IQ.Accountant.System.Repositories.Repository;
 using IQ.Accountant.System.Services.IServices;
 using IQ.Accountant.System.Services.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace IQAccountantSystem
 {
@@ -37,6 +40,26 @@ namespace IQAccountantSystem
                   });
             });
             services.AddDbContext<IQAccountantSystemContext>(option => option.UseSqlServer(Configuration.GetConnectionString("IQAccountantSystem")));
+
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(o =>
+            {
+                var Key = Encoding.UTF8.GetBytes(Configuration["JWT:Key"]);
+                o.SaveToken = true;
+                o.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = Configuration["JWT:Issuer"],
+                    ValidAudience = Configuration["JWT:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Key)
+                };
+            });
             services.AddScoped<IFileService, FileService>();
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
@@ -46,6 +69,9 @@ namespace IQAccountantSystem
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ISaleRepository, SaleRepository>();
             services.AddScoped<ISaleService, SaleService>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
+
 
 
         }
@@ -57,10 +83,10 @@ namespace IQAccountantSystem
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            
             app.UseHttpsRedirection();
-
             app.UseRouting();
+            app.UseAuthentication();
             app.UseCors("IQPolicy");
             app.UseAuthorization();
 

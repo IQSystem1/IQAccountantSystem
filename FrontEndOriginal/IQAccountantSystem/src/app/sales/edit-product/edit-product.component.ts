@@ -59,6 +59,7 @@ export class EditProductComponent implements OnInit {
   }
 
   Update(){
+    console.log(this.product)
     this.productService.Put(this.product).subscribe(
       data=>{
         this.spinner.hide();

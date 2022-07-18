@@ -1,5 +1,6 @@
 ﻿using IQ.Accountant.System.Entities;
 using IQ.Accountant.System.Repositories.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -7,6 +8,7 @@ namespace IQAccountantSystem.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductImageController : Controller
     {
         private readonly IProductImageVideoRepository _imageRepository;

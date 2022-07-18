@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { PaginationInfo } from 'src/app/Models/PaginationInfo';
 import { ProductDTO } from 'src/app/Models/ProductDTO';
 import { SaleDTO } from 'src/app/Models/SaleDTO';
 import { PrintBarcodeComponent } from 'src/app/print-barcode/print-barcode.component';
+import { ReadQrComponent } from 'src/app/read-qr/read-qr.component';
 import { SaleService } from 'src/app/Services/sale.service';
 import { ShowVideosComponent } from 'src/app/show-videos/show-videos.component';
 import { EditProductComponent } from '../edit-product/edit-product.component';
@@ -27,7 +29,7 @@ export class SalesTableComponent implements OnInit {
   };
   sales:SaleDTO[] = []
   count = 0;
-  constructor(private saleService:SaleService, private toastr:ToastrService, private dialog:MatDialog) { }
+  constructor(private saleService:SaleService, private toastr:ToastrService, private dialog:MatDialog,private spinner:NgxSpinnerService) { }
   
 
   ngOnInit(): void {
@@ -44,11 +46,14 @@ export class SalesTableComponent implements OnInit {
     this.GetSales();
   }
   GetSales(){
+    this.spinner.show();
     this.saleService.get(this.paginationInfo).subscribe(
       data=>{
         this.sales = data;
+        this.spinner.hide();
       },error=>{
         console.log(error);
+        this.spinner.hide();
       }
     )
   }
@@ -115,6 +120,10 @@ export class SalesTableComponent implements OnInit {
   OpenEditProduct(sale:SaleDTO){
     let product =ConvertSaleDTOToProductDTO(sale);
     this.dialog.open(EditProductComponent,{data:product,width:"100%"})
+  }
+
+  OpenQrRead(){
+    this.dialog.open(ReadQrComponent);
   }
 
   

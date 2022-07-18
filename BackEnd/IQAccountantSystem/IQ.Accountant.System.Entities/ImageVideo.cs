@@ -1,9 +1,6 @@
 ﻿using IQ.Accountant.System.Entities.GR.Data;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace IQ.Accountant.System.Entities
 {
@@ -13,5 +10,6 @@ namespace IQ.Accountant.System.Entities
         [Column("URL")]
         public string Url { get; set; }
         public ICollection<ProductImageVideo> productImageVideos { get; set; }
+        public ICollection<User> Users { get; set; }
     }
 }

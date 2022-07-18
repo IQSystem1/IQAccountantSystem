@@ -11,7 +11,10 @@ using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
+using ZXing;
 
 namespace IQ.Accountant.System.Services.Services
 {

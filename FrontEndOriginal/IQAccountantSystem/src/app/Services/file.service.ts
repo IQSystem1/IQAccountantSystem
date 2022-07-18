@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { FileController } from '../EnumsUrl/FileController';
 import { BarcodeDTO } from '../Models/BarcodeDTO';
+import { BlobDTO } from '../Models/BlobDTO';
 import { SuccessMessage } from '../Models/SuccessMessage';
 
 @Injectable({
@@ -14,11 +15,18 @@ export class FileService {
   constructor(private http: HttpClient) { }
   
   Upload(selectedFile:File):Observable<SuccessMessage> {
-    debugger;
     const formData = new FormData();
     formData.append('file', selectedFile);
     return this.http.post<SuccessMessage>(FileController.post.toString(),formData,{
       reportProgress: true,
+    })
+  }
+
+  ReadQrCode(file:File) {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post<SuccessMessage>(FileController.post.toString()+"ReadQrCode",formData,{
+      reportProgress: true 
     })
   }
 
