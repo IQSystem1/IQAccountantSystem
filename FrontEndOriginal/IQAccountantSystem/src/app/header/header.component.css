@@ -627,9 +627,16 @@ section
 	line-height: 48px;
 	cursor: pointer;
 }
-.custom_dropdown_placeholder i
-{
-	
+.left{
+	width: 100%;
+	border: 1px solid black;
+	background-color: #000;
+}
+.right-li{
+	width: 100%;
+}
+.right-li button{
+	float: right;
 }
 .custom_list
 {
