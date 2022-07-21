@@ -1,5 +1,5 @@
 @media print{
-    app-header{
+    app-header,app-footer{
         display: none;
     }
     

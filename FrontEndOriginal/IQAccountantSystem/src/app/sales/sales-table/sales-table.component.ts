@@ -49,6 +49,7 @@ export class SalesTableComponent implements OnInit {
     this.spinner.show();
     this.saleService.get(this.paginationInfo).subscribe(
       data=>{
+        console.log(data)
         this.sales = data;
         this.spinner.hide();
       },error=>{

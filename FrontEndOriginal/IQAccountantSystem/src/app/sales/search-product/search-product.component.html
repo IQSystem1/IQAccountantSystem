@@ -4,7 +4,7 @@
             <form>
                 <h6 class="card-title mb-3"><h1>بحث عن منتج لبيعه</h1></h6>
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-md-10">
                         <div class="form-group">
                             <input class="form-control" [ngModelOptions]="{standalone: true}" 
                             (keyup.enter)="GetProduct()" (ngModelChange)="ChangeProductCode()" 
@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="row mt-2">
-                    <div class="col-12">
+                    <div class="col-md-10">
                         <div class="form-group">
                             <input class="form-control" [ngModelOptions]="{standalone: true}" 
                             (keyup.enter)="GetProduct()" (ngModelChange)="ChangeProductIqCode()" 
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-12">
+                    <div class="col-md-10">
                         <div class="form-group">
                             <input class="form-control" [ngModelOptions]="{standalone: true}" 
                             (keyup.enter)="GetProduct()" (ngModelChange)="ChangeProductName()" 
@@ -34,7 +34,7 @@
                         
                     </div>
                 </div>
-                <div class="mt-5 mb-5 d-flex justify-content-center text-center">
+                <div class="m-3 d-flex justify-content-center text-center">
                     <table class="table table-bordered p-3 m-3">
                         <thead>
                             <th scope="col">الكود</th>
@@ -59,25 +59,27 @@
             
         </div>
     </div>
-    <div class="card px-1 py-4">
+    <div class="card">
         <div class="card-body">
-            <div class="row mb-3 prod-container" *ngFor="let prod of productToSale | keyvalue">
-                <div class="col-3 prod-info">
-                    {{prod.key}}    
-
+            <div class="container prod-container m-3" *ngFor="let prod of productToSale | keyvalue">
+                <div class="row text-center">    
+                    <h1>
+                        {{prod.key}}    
+                    </h1>
+                </div>    
+                <div class="row  btns">
+                        <button class="btn"(click)="AddOneProductToSale(prod.key)">+</button>
+                        <button class="btn" (click)="MinusOneProductToSale(prod.key)">-</button>
+                        <input  type="number" #quan class="form-control input-quantity" (keyup.enter)="AddquantityProduct(prod.key,quan)" placeholder="الكمية">
+                        <button class="btn text-center align-items-center" (click)="DeleteProductToSale(prod.key)"><i class="fa fa-trash"></i></button>    
                 </div>
-                <div class="col-7 btns">
-                    <button class="btn btn-primary m" (click)="DeleteProductToSale(prod.key)">حذف</button>
-                    <button class="btn btn-danger m-1" (click)="MinusOneProductToSale(prod.key)">-</button>
-                    <button class="btn btn-success"(click)="AddOneProductToSale(prod.key)">+</button>
-                    <input  type="number" #quan class="form-control input-quantity" (keyup.enter)="AddquantityProduct(prod.key,quan)" placeholder="اكتب الكمية">
-                    
-                </div>
-                <div class="col-2 prod-info">
-                    <span class="prod-value">{{prod.value}}</span>
+                <div class="row m-auto prod-value">
+                    <span class="">{{prod.value}}</span>
                 </div>
 
             </div>
+            
+            
         </div>
         
         <button class="btn btn-primary" (click)="Submit()" type="submit">بيع</button>

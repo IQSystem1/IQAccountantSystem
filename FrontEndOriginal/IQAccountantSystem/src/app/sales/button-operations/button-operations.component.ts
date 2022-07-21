@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { AddProductComponent } from '../add-product/add-product.component';
+import { SearchProductComponent } from '../search-product/search-product.component';
 
 @Component({
   selector: 'app-button-operations',
@@ -35,6 +36,9 @@ export class ButtonOperationsComponent implements OnInit {
         hide.classList.add("hide")
       }
     }
+  }
+  OpenSale(){
+    this.dialog.open(SearchProductComponent,{width:"1000px",height:"500px"})
   }
 
 

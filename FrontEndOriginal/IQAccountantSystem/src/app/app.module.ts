@@ -5,8 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
-import { HeaderNavbarComponent } from './header/header-navbar/header-navbar.component';
-import { HeaderTitleComponent } from './header/header-title/header-title.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -28,21 +27,21 @@ import { AuthModuleModule } from './auth-module/auth-module.module';
 import { AuthGuard } from './Guards/auth.guard';
 import { UserService } from './Services/user.service';
 import { TokenInterceptorService } from './Services/token-interceptor.service';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HeaderComponent,
-    HeaderNavbarComponent,
-    HeaderTitleComponent,
     ShowProductComponent,
     PrintNoteComponent,
     ShowVideosComponent,
     VideoPageComponent,
     PrintQrCodeComponent,
     PrintBarcodeComponent,
-    ReadQrComponent
+    ReadQrComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

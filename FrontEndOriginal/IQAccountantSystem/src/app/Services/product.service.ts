@@ -15,6 +15,9 @@ export class ProductService {
   constructor(private http:HttpClient) { }
 
   Get(paginationInfo:PaginationInfo):Observable<ProductDTO[]>{
+    console.log(ProductController.getByCode.toString());
+    console.log(paginationInfo);
+    
     return this.http.post<ProductDTO[]>(ProductController.getByCode.toString(),paginationInfo);
   }
   GetById(id:number):Observable<ProductDTO>{

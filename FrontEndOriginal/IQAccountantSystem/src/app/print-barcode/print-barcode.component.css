@@ -26,3 +26,11 @@
         display: none;
     }
 }
+button{
+    background-image: linear-gradient(#61bd46,#1e9447);
+    border: 2px solid #D4BC77;
+    color: #F6F6F6;
+  }
+  button:hover {
+    background-color: #D4BC77;
+   }

@@ -29,7 +29,6 @@ export class ShowProductDialogComponent implements OnInit {
 
     this.GenerateBarcode();
     this.GenerateQrcode();
-    debugger;
     if(this.product.productCode){
       this.productService.GetByProductCode(this.product.productCode).subscribe(
         data=>{
@@ -54,8 +53,8 @@ export class ShowProductDialogComponent implements OnInit {
     this.dialog.open(PrintBarcodeComponent,{data:product})
   }
 
-  WatchVideo(productIqCode?:string){
-      window.open("video/"+productIqCode, "_blank", "height=500,width=1000");
+  WatchVideo(product:ProductDTO){
+    window.open(product.videoUrl, '_blank', 'toolbar=0,location=0,menubar=0')
   }
 
 

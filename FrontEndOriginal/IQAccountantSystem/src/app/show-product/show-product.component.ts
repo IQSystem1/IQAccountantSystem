@@ -10,6 +10,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeleteProductComponent } from '../sales/delete-product/delete-product.component';
 import { PrintNoteComponent } from '../print-note/print-note.component';
 import { PrintBarcodeComponent } from '../print-barcode/print-barcode.component';
+import { Product } from '../Models/Product';
+import { ShowProductDialogComponent } from '../sales/show-product-dialog/show-product-dialog.component';
+import { ReadQrComponent } from '../read-qr/read-qr.component';
 
 @Component({
   selector: 'app-show-product',
@@ -23,6 +26,9 @@ export class ShowProductComponent implements OnInit {
     pageNo:1,
     pageSize:5
   }
+  code="";
+  iqCode="";
+
   constructor(private productService:ProductService,private fileService:FileService,
     private toastr:ToastrService,private spinner:NgxSpinnerService,
     public dialog: MatDialog) { }
@@ -32,9 +38,10 @@ export class ShowProductComponent implements OnInit {
   }
   GetProduct(){
     this.spinner.show();
-    this.productService.Get(this.paginationInfo).subscribe(
+      this.productService.Get(this.paginationInfo).subscribe(
       data=>{
         this.productDto = data;        
+        console.log(this.productDto)
         this.spinner.hide();
       },error=>{
         this.spinner.hide();
@@ -69,12 +76,73 @@ export class ShowProductComponent implements OnInit {
   this.dialog.open(PrintNoteComponent,{data:product,width:"100%"});
  }
  OpenDeleteComponent(product:ProductDTO){
-  this.dialog.open(DeleteProductComponent,{data:product,width:"100%",height:"100%"});
+  // this.dialog.open(DeleteProductComponent,{data:product,width:"100%",height:"100%"});
+  window.location.reload();
  }
  Print(){
   window.print();
  }
 
+
+ Search(){
+  this.paginationInfo.pageSize=10;
+    if(isNumber(this.code)){
+      let product:Product = {
+        productCode:this.code
+      }
+        this.productService.Search(product).subscribe(
+        data=>
+        {
+          if(data==null)
+            this.toastr.warning("لا يوجد منتج بهذا الكود")
+          this.dialog.open(ShowProductDialogComponent,{data:data[0],width:"100%"})
+          this.productDto=data
+        }
+      )
+    
+  }else if(this.code.length==0){
+    this.GetProduct();
+    this.toastr.warning("لا يوجد منتج بهذا الكود")
+  }
+  
+ }
+
+ OpenQrRead(){
+  this.dialog.open(ReadQrComponent);
+
+ }
+
+ SearchByIqCode(){
+  this.paginationInfo.pageSize=10;
+  if(isNumber(this.iqCode)){
+    let product:Product = {
+      productIqCode:this.iqCode
+    }
+      this.productService.Search(product).subscribe(
+      data=>
+      {
+        if(data==null)
+          this.toastr.warning("لا يوجد منتج بهذا الكود")
+        this.dialog.open(ShowProductDialogComponent,{data:data[0],width:"100%"})
+        this.productDto=data
+      }
+    )
+  
+}else if(this.code.length==0){
+  this.GetProduct();
+  this.toastr.warning("لا يوجد منتج بهذا الكود")
+}
+
+ }
+ 
+
+}
+
+function isNumber(value: string | number): boolean
+{
+   return ((value != null) &&
+           (value !== '') &&
+           !isNaN(Number(value.toString())));
 }
 
 

@@ -1,40 +1,52 @@
 .card-body{
-    width: 600px;
+    width: 500px;
     overflow-y: scroll;
 }
 .prod-container{
     border: 1px solid;
-    padding: 10px;
-    align-items: center;
-    height: 75px;
+    width: 90%;
     border-radius: 50px;
 }
-.prod-info{
+
+
+.btn{
+    background-image: linear-gradient(#61bd46,#1e9447);
+    border: 2px solid #D4BC77;
+    color: #F6F6F6;
+  }
+  button:hover {
+    background-color: #D4BC77;
+   }
+   
+   .btns{
+    margin: 20px;
+   }
+.btns .btn{
+    width: 40px;
     font-size: 20px;
+    height: 40px;
     align-items: center;
-}
-.prod-value{
-    color: white;
-    background-color: black;
-    padding: 10px;
-    border-radius: 50%;
-}
-.btns{
-    align-items: center;
-}
-.input-quantity{
-    border-radius:10px ;
-    width: 100px;
-    margin-left: 4px;
-    display: inline;
+    margin: 2px;
+    
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+.prod-value{
+    background-image: linear-gradient(#61bd46,#1e9447);
+    color: #fff;
+    width: 90px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 20px;
+    height: 60px;
+    border: 2px solid #D4BC77;
+    padding: 20px;
+    text-align: center;
 }
+
+.input-quantity{
+    width: 75px;
+}
+
 
 input[type=number] {
     -moz-appearance:textfield; /* Firefox */

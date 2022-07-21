@@ -1,6 +1,5 @@
-app-sales-table{
-    margin-bottom: 50px;
-}
+
+
 @media print{
     app-sales-table,app-button-operations ,button{
         display: none;

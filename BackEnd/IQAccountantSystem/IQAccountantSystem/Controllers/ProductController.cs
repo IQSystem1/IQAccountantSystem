@@ -13,7 +13,7 @@ namespace IQAccountantSystem.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class ProductController : Controller
     {
         private readonly IProductRepository _productRepository;

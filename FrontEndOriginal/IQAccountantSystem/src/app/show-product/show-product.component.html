@@ -1,43 +1,124 @@
-<table class="table table-bordered p-3 m-3">
-    <thead>
-      <tr>
-        <th></th>
-        <th></th>
-        <th scope="col"></th>
-        <th scope="col"></th>
 
-        <th scope="col">الصورة</th>
-        <th scope="col">الفيديو</th>
-        <th scope="col">السعر</th>
-        <th scope="col">الضريبة</th>
-        <th scope="col">الوحدة</th>
-        <th scope="col">ملاحظات</th>
-        <th scope="col">كود المنتج الخاص</th>
-        <th scope="col">الكود</th>
-        <th scope="col">الاسم</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of productDto">
-        <td><button class="btn btn-success" [routerLink]="'../edit/'+product.productId">تعديل</button></td>
-        <td><button class="btn btn-danger" (click)="OpenDeleteComponent(product)">حذف</button></td>
-        <td><button class="btn btn-success" [routerLink]="'../barcode/'+product.productIqCode" >طباعة الباركود</button></td>
-        <td *ngIf="!product.productNote"></td>
-        <td *ngIf="product.productNote"><button class="btn btn-success" [routerLink]="'../qrcode/'+product.productIqCode" >كود Qr طباعة ال </button></td>
+   <div class="sales-container"> 
+  <div class="intro">
+    <div class="container search-container">
+        <div class="container-search">
+          <div class="">
+             
+            <div class="box">
+              <div class="container-1">
+                  <span class="icon"><i class="fa fa-search"></i></span>
+                  <input id="search" [(ngModel)]="code" (keyup.enter)="Search()" type="text" placeholder="كود المنتج"> 
+              </div>
+            </div>
+          </div> 
+          <div class=""> 
+            <div class="box">
+              <div class="container-1">
+                <button style="width: 100%;" (click)="OpenQrRead()" class="btn qr-reader" > <i class="fa fa-qrcode"></i> </button> 
+            </div>
+            </div>
+          </div> 
+          <div class="">  
+            <div class="box">
+              <div class="container-1">
+                  <span class="icon"><i class="fa fa-search"></i></span>
+                  <input [(ngModel)]="iqCode" id="search" (keyup.enter)="SearchByIqCode()" type="text" placeholder="كود المنتج الخاص "> 
+              </div>
+            </div>
+          </div> 
+      </div>
+      
+    </div> 
+  </div>
+</div>
+  <div class="sales-container">
+
+    <section class="intro">
+      <div class="bg-image h-100" style="background-color: #f5f7fa;">
+        <div class="mask d-flex align-items-center h-100">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body p-0">
+                    <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                      <table class="table table-striped mb-0">
+                        <thead style="background-image: linear-gradient(#61bd46,#1e9447);">
+                          <tr>
+                            <th></th>
+                            <th></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+
+                            <th scope="col">الفيديو</th>
+                            <th scope="col">السعر</th>
+                            <th scope="col">الضريبة</th>
+                            <th scope="col">ملاحظات</th>
+                            <th scope="col">كود المنتج الخاص</th>
+                            <th scope="col">الكود</th>
+                            <th scope="col">الاسم</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let product of productDto">
+                            <td>
+                              <button class="btn btn-success" [routerLink]="'../edit/'+product.productId">
+                                <i class="fa fa-edit"></i>
+                              </button>
+                            </td>
+
+                            <td>
+                              <button class="btn btn-danger" [routerLink]="'../delete/'+product.productId">
+                                <i class="fa fa-trash"></i>
+                              </button>
+                            </td>
+
+                            <td>
+                              <button *ngIf="product.videoUrl" class="btn btn-success" [routerLink]="'../barcode/'+product.productIqCode" >
+                                <!-- <i class="fa fa-print"></i>   -->
+                                <i class="fa fa-barcode" title="Print barcode"></i> 
+                              </button>
+                            </td>
+
+                            
+                            <td>
+                              <button *ngIf="product.videoUrl" class="btn btn-success" [routerLink]="'../qrcode/'+product.productIqCode" >
+                                <!-- <i class="fa fa-print"></i>  -->
+                                <i class="fa fa-qrcode" title="Print Qrcode"></i> 
+                                </button>
+                            </td>
+
+                            <td>
+                              <a *ngIf="product.videoUrl" style="background-image: linear-gradient(#61bd46,#1e9447); border-radius: 15px;" [href]="product.videoUrl" class="btn">
+                                <a  style="color: white;"> 
+                                  <i class="fa fa-play"></i>
+                                </a>
+                              </a>
+                           </td>
+
+                            <td>{{product.productPrice}}</td>
+                            <th>{{product.productTax}}</th>
+                            <td>{{product.productNote}}</td>
+                            <td>{{product.productIqCode}}</td>
+                            <td>{{product.productCode}}</td>
+                            <td>{{product.productName}}</td>
+                          </tr>
+                        </tbody>
+                      <button (click)="Paginate()">See more</button>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+    
+  </section>
+</div>
 
 
-        <td><img [src]="product.imageUrl" width="100px" height="100px" alt="لا يوجد صورة"> </td>
-        <td *ngIf="product.videoUrl"><a [href]="product.videoUrl"> من هنا</a> </td>
-        <td class="bold" *ngIf="!product.videoUrl" style="color: red;">لا يوجد فيديو </td>
-        <td>{{product.productPrice}}</td>
-        <th>{{product.productTax}}</th>
-        <td>{{product.productUnit}} </td>
-        <td>{{product.productNote}}</td>
-        <td>{{product.productIqCode}}</td>
-        <td>{{product.productCode}}</td>
-        <td>{{product.productName}}</td>
-      </tr>
-    </tbody>
-  <button (click)="Paginate()">See more</button>
-
-  </table> 

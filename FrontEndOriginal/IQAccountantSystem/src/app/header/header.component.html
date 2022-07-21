@@ -1,13 +1,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
 <div class="super_container">
-	<nav class="navbar navbar-expand navbar-light bg-light">
-		<a class="navbar-brand">
-			<img width="100px" height="100px" src="../../assets/Images/dw21batch4-sasi-35-[Converted].png">
-			<span class="span-logo"> <span style="color: green;">Resheh</span> / ريشة </span>
-			<img width="100px" height="100px" src="../../assets/Images/dw21batch4-sasi-35-[Converted].png">
+	<nav class="cont">
+		<a class="" routerLink="">
+			<img width="100px" height="100px" src="../../assets/Images/100-100.png	">
+			<!-- <span class="span-logo"> <span style="color: #1e9447;">IQ Limits</span> </span> -->
 		</a>
-		<div *ngIf="loggedIn()" class="right-li">
-			<button type="button" (click)="logout()" class="btn btn-danger" style="padding: 5px;">Logout</button>
+		<div class="">
+			<img width="200px" height="100px" src="../../assets/Images/200-100.png	">
+		</div>
+		<div *ngIf="loggedIn()" class="logout">
+			<button type="button" (click)="logout()" class="btn btn-danger" style="padding: 10px;">
+				<i title="logout" class="fa fa-sign-out" style="font-size:large"></i>
+			</button>
 		</div>
 	  </nav>
 

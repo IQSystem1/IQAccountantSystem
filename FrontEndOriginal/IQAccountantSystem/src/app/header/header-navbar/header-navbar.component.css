@@ -1,8 +1,0 @@
-.list-info{
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    border-right:  1px solid;
-}
-.row:first-child{
-    border-left: 1px solid;
-}

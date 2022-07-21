@@ -20,7 +20,6 @@ export class ProductVideoService {
   }
   Post(product:ProductVideo):Observable<ProductVideo>{
     const url = ProductVideoController.put.toString();
-    debugger;
     return this.http.post<ProductVideo>(ProductVideoController.post.toString(),product);
   }
   Put(product:ProductVideo):Observable<SuccessMessage>{

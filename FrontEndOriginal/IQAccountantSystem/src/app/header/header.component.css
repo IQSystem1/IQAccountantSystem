@@ -25,6 +25,11 @@
 .logo{
 	height: 100%;
 	border-radius: 50px;
+	
+}
+.span-logo{
+	font-size: 30px;
+	color: linear-gradient(#61bd46,#1e9447)
 }
 .container-logo{
 	align-items: center;
@@ -1427,3 +1432,21 @@ select option
 	}
 	
 }
+button{
+    background-image: linear-gradient(#61bd46,#1e9447);
+    border: 2px solid #D4BC77;
+    color: #F6F6F6;
+  }
+  button:hover {
+    background-color: #D4BC77;
+   }
+   .cont{
+	display: flex;
+	justify-content:space-between;
+	align-items: center;
+   }
+   .logout{
+	width: 100px;
+	
+	
+   }

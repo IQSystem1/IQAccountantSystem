@@ -1,6 +1,6 @@
 <div class="container">
     <div class="fixed-bottom" >
-        <div class="float-end operations">
+        <div class="float-end operations text-center">
     
             <div class="operation hide">
                 <div class="show">
@@ -16,6 +16,14 @@
                 </div>
                 <div class="operation-i">
                     <i routerLink="products" class="fa fa-eye"></i>
+                </div>
+            </div>
+            <div class="operation hide">
+                <div class="show">
+                    Sale
+                </div>
+                <div (click)="OpenSale()" class="operation-i">
+                    Sale
                 </div>
             </div>
             

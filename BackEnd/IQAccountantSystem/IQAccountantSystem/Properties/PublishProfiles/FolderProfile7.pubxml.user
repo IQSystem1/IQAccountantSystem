@@ -5,6 +5,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\warda\OneDrive\Desktop\accSitePublishing</_PublishTargetUrl>
-    <History>True|2022-07-18T13:21:53.6773618Z;True|2022-07-18T16:07:30.4092349+03:00;True|2022-07-18T15:23:55.4191451+03:00;True|2022-07-18T12:56:28.8352263+03:00;True|2022-07-07T12:43:57.6748977+03:00;</History>
+    <History>False|2022-07-21T08:52:07.9419139Z;True|2022-07-21T11:43:31.9783684+03:00;True|2022-07-21T11:23:38.6348491+03:00;True|2022-07-19T16:22:56.5074166+03:00;True|2022-07-19T15:12:56.4932526+03:00;True|2022-07-19T15:12:20.3552547+03:00;True|2022-07-19T15:11:37.0124354+03:00;True|2022-07-18T16:21:53.6773618+03:00;True|2022-07-18T16:07:30.4092349+03:00;True|2022-07-18T15:23:55.4191451+03:00;True|2022-07-18T12:56:28.8352263+03:00;True|2022-07-07T12:43:57.6748977+03:00;</History>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword />
   </PropertyGroup>
 </Project>

@@ -20,11 +20,13 @@ export class ReadQrComponent implements OnInit {
   result:any;
   OnCodeResult(result:string)
   {
+    console.log(result)
     this.saleService.SearchByCode(String(result)).subscribe(
       data=>
       {
         if(data==null){
-          this.toastr.warning("لا يوجد منتج بهذا الكود")
+          
+          this.toastr.warning(String(data) +" لا يوجد منتج بهذا الكود")
           this.dialog.closeAll();
         }else{
           console.log(data)

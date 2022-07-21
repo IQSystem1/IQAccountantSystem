@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { ProductDTO } from 'src/app/Models/ProductDTO';
 import { SaleProductDTO } from 'src/app/Models/SaleProductDTO';
@@ -20,7 +21,7 @@ export class SearchProductComponent implements OnInit {
   isProduct = true;
   
   products:ProductDTO[]=[]
-  constructor(private productService:ProductService, private toastr:ToastrService, private saleService:SaleService) { }
+  constructor(private productService:ProductService, private toastr:ToastrService, private saleService:SaleService,private dialog:MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -70,13 +71,11 @@ export class SearchProductComponent implements OnInit {
   }
 
   AddquantityProduct(productKey:string,quantity:any){
-    debugger;
     this.productToSale.set(productKey,Number(quantity.value))
     
   }
 
   Submit(){
-    debugger;
     if(this.productToSale.values().next().value){
       this.productToSale.forEach((value , key )=> {
         let saleProduct:SaleProductDTO = {
@@ -84,6 +83,8 @@ export class SearchProductComponent implements OnInit {
           quantity:value,
         }
         this.InsertSale(saleProduct);
+        this.dialog.closeAll();
+        window.location.reload();
       });
       
 

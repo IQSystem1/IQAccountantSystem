@@ -21,7 +21,7 @@ export class AddProductComponent implements OnInit {
   } ;
   
 
-  selectedImage:any;
+  // selectedImage:any;
   selectedVideo:any;
 
 
@@ -33,7 +33,7 @@ export class AddProductComponent implements OnInit {
     productPrice: new FormControl(null,[Validators.required]),
     productTax: new FormControl(null),
     productNote: new FormControl(null),
-    productImage: new FormControl(null),
+    // productImage: new FormControl(null),
     productVideo: new FormControl(null)
   })
 
@@ -51,7 +51,9 @@ export class AddProductComponent implements OnInit {
     
     if(this.productForm.valid){
       this.FillProduct();
-      if(this.selectedImage || this.selectedVideo){
+      if(
+        // this.selectedImage || 
+        this.selectedVideo){
         this.product.productIqCode = "yes";
       }
       this.spinner.show();
@@ -85,7 +87,7 @@ export class AddProductComponent implements OnInit {
       var src = URL.createObjectURL(target.files[0]);
       if(target.files.item(0)){
         var src = URL.createObjectURL(target.files[0]);
-        this.selectedImage = target.files.item(0);
+        // this.selectedImage = target.files.item(0);
         
         var prev = document.getElementById("img") as HTMLImageElement;
         prev.src=src;
@@ -125,30 +127,31 @@ export class AddProductComponent implements OnInit {
   }
  
   UploadFile(){
-    if(this.selectedImage){
-      this.fileService.Upload(this.selectedImage).subscribe(
-        data=>{
+    // if(this.selectedImage){
+    //   this.fileService.Upload(this.selectedImage).subscribe(
+    //     data=>{
 
-          this.product.imageUrl = data.message;
-          if(this.selectedVideo){
-            this.fileService.Upload(this.selectedVideo).subscribe(
-              data=>{
-                this.product.videoUrl = data.message;
-                this.InsertProduct();
-              },error=>{
-                this.spinner.hide();
-                this.toastr.error(error.message)      
-              }
-            )
-          }else{
-            this.InsertProduct();
-          }
-        },error=>{
-          this.spinner.hide();
-          this.toastr.error(error.message)
-        }
-      )
-    }else if(this.selectedVideo){
+    //       this.product.imageUrl = data.message;
+    //       if(this.selectedVideo){
+    //         this.fileService.Upload(this.selectedVideo).subscribe(
+    //           data=>{
+    //             this.product.videoUrl = data.message;
+    //             this.InsertProduct();
+    //           },error=>{
+    //             this.spinner.hide();
+    //             this.toastr.error(error.message)      
+    //           }
+    //         )
+    //       }else{
+    //         this.InsertProduct();
+    //       }
+    //     },error=>{
+    //       this.spinner.hide();
+    //       this.toastr.error(error.message)
+    //     }
+    //   )
+    // }else 
+    if(this.selectedVideo){
       this.fileService.Upload(this.selectedVideo).subscribe(
         data=>{
           this.product.videoUrl = data.message;

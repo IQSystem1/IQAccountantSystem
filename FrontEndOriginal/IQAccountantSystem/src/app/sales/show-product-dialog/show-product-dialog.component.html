@@ -17,7 +17,7 @@
                         <source [src]="product.videoUrl">
                     </video>
                     <div class="row start-video m-auto">
-                        <button class="btn btn-primary" (click)="WatchVideo(product.productIqCode)">مشاهدة الفيديو</button>
+                        <button class="btn"  (click)="WatchVideo(product)"><i class="fa fa-play"></i></button>
                     </div>
                 </div>
                 <div class="col-5">
@@ -35,11 +35,15 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <img width="200px" height="200px" [src]="barcode" class="card-img-top mb-1"  alt="Card image cap">
-                                        <button class="btn btn-primary" [routerLink]="'barcode/'+product.productIqCode">طباعة</button>
+                                        <button class="btn btn-primary" [routerLink]="'barcode/'+product.productIqCode">
+                                            <i class="fa fa-print"></i>
+                                        </button>
                                     </div>
                                     <div class="col-6">
                                         <img width="200px" height="200px" [src]="qrcode" class="card-img-top mb-1"  alt="Card image cap">
-                                        <button class="btn btn-primary" [routerLink]="'qrcode/'+product.productIqCode">طباعة</button>
+                                        <button class="btn btn-primary" [routerLink]="'qrcode/'+product.productIqCode">
+                                            <i class="fa fa-print"></i>
+                                        </button>
                                     </div>
                                 </div>
                                 

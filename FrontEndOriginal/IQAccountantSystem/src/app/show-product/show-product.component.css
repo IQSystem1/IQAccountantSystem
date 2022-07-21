@@ -1,9 +1,122 @@
-.bold{
-    font-weight: bold;
+.sales-container{
+  background-color: #F8F9FA;
 }
-.viewport::ng-deep video {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-  }
+.intro {
+height: 100%;
+
+
+}
+
+table td,
+table th {
+text-overflow: ellipsis;
+white-space: nowrap;
+overflow: hidden;
+}
+
+thead th {
+color: #fff;
+}
+
+.card {
+border-radius: .5rem;
+}
+
+.table-scroll {
+border-radius: .5rem;
+}
+
+.table-scroll table thead th {
+font-size: 1.25rem;
+}
+thead {
+top: 0;
+position: sticky;
+}
+.btns{
+  margin-bottom: 199px;
+}
+.container-1{
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+.container-1 input#search{
   
+  height: 50px;
+  background: white;
+  border: 1px solid black;
+  font-size: 10pt;
+  float: left;
+  color: #63717f;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.container-1 input#search::-webkit-input-placeholder {
+  color: #65737e;
+}
+
+.container-1 input#search:-moz-placeholder { /* Firefox 18- */
+  color: #65737e;  
+}
+
+.container-1 input#search::-moz-placeholder {  /* Firefox 19+ */
+  color: #65737e;  
+}
+
+.container-1 input#search:-ms-input-placeholder {  
+  color: #65737e;  
+}
+.container-1 .icon{
+  position: absolute;
+  top: 50%;
+  margin-left: 17px;
+  margin-top: 17px;
+  z-index: 1;
+  color: #4f5b66;
+}
+.qr-reader{
+  background-image: linear-gradient(#61bd46,#1e9447);
+  border: 2px solid #D4BC77;
+  color: #F6F6F6;
+  height: 50px;
+}
+.search-container{
+  margin:auto;
+}
+.search-container .row{
+  padding: 10px;
+}
+button{
+  background-image: linear-gradient(#61bd46,#1e9447);
+  border: 2px solid #D4BC77;
+  color: #F6F6F6;
+}
+
+.table-striped>tbody>tr:nth-child(even)>td, 
+.table-striped>tbody>tr:nth-child(even)>th {
+ background-color: #D4BC77; 
+}
+button:hover {
+background-color: rgb(224, 205, 205);
+}
+.qr-reader:hover{
+color: black;
+}
+.table{
+color: #D4BC77;
+}
+td{
+color: #000;
+}
+.container-search{
+display: flex;
+justify-content: space-around;
+padding: 10px;
+}
+i{
+  font-size: 30px;
+}
